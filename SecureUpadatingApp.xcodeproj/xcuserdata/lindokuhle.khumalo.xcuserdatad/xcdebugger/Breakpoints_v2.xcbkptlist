@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5BA6491F-29A9-46F0-B91E-EFBD407F593C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCEFF2BA-12EC-4AFC-BAE8-BD1916CE23FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecureUpadatingApp/View/EmployeeListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DCEFF2BA-12EC-4AFC-BAE8-BD1916CE23FD - 7d6113bfa25a7208"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SecureUpadatingApp.EmployeeListViewController.tableView(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "SecureUpadatingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lindokuhle.khumalo/Desktop/Swift%20learning/Apps/SecureUpadatingApp/SecureUpadatingApp/View/EmployeeListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "DCEFF2BA-12EC-4AFC-BAE8-BD1916CE23FD - 7d6113bfa25a724a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SecureUpadatingApp.EmployeeListViewController.tableView(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "SecureUpadatingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lindokuhle.khumalo/Desktop/Swift%20learning/Apps/SecureUpadatingApp/SecureUpadatingApp/View/EmployeeListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
