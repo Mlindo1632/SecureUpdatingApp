@@ -51,7 +51,7 @@ class SelectPreferredColourViewController: UIViewController, UITableViewDelegate
     let cell = tableView.dequeueReusableCell(withIdentifier: "ColourDetails", for: indexPath) as! PreferredColourTableViewCell
         let preferrdColor = preferredColourList?.data[indexPath.row]
         cell.preferredColourNameLabel.text = "\(preferrdColor?.name ?? "")"
-        cell.actualColourUIView?.backgroundColor = UIColor(named: preferrdColor?.color ?? "")
+        cell.actualColourUIView.backgroundColor = UIColor(named: preferrdColor?.color ?? "")
         return cell
     }
     

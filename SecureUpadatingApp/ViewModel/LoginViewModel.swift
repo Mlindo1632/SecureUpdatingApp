@@ -11,13 +11,13 @@ protocol LoginViewModelDelegate: AnyObject {
     
     func didSuccessfullyLogin(loginModel: LogInModel)
     func didFailLogin(error: Error)
-    func navigateToSelectEmployee()
-    func invalidCredentialsAlert()
+   
 }
 
 class LoginViewModel: LoginAPIServiceDelegate {
     
     weak var delegate: LoginViewModelDelegate?
+    
     private let loginRepository: LoginRepository
     
     init(loginRepository: LoginRepository) {
@@ -34,10 +34,9 @@ class LoginViewModel: LoginAPIServiceDelegate {
             switch result {
             case .success(let user):
                 self.delegate?.didSuccessfullyLogin(loginModel: user)
-                self.delegate?.navigateToSelectEmployee()
+                
             case .failure(let error):
                 self.delegate?.didFailLogin(error: error)
-                self.delegate?.invalidCredentialsAlert()
             }
         }
     }

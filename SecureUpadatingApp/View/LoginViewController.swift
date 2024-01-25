@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViewModel()
-        //loginActivityIndicator.isHidden = true
+        loginActivityIndicator.isHidden = true
     }
     
     func setupViewModel() {
@@ -38,7 +38,6 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         return
     }
     
-    
     func navigateToSelectEmployee() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectEmployeeViewController") as! SelectEmployeeViewController
         navigationController?.pushViewController(vc, animated: true)
@@ -46,22 +45,24 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        loginActivityIndicator.startAnimating()
         loginActivityIndicator.isHidden = false
+        loginActivityIndicator.startAnimating()
         
         guard let email = emailTextfield.text, let password = passwordTextField.text else { return }
         loginViewModel.loginUser(email: email, password: password)
-        
-        loginActivityIndicator.hidesWhenStopped = true
-        loginActivityIndicator.stopAnimating()
     }
     
     func didSuccessfullyLogin(loginModel: LogInModel) {
         print("Login successful. User token is: \(loginModel.token)")
+        navigateToSelectEmployee()
+        loginActivityIndicator.isHidden = true
+        
     }
 
     func didFailLogin(error: Error) {
         print("Login failed. Error: \(error.localizedDescription)")
+        invalidCredentialsAlert()
+        loginActivityIndicator.isHidden = true
     }
     
 }
