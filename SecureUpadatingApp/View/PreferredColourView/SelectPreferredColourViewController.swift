@@ -48,14 +48,22 @@ class SelectPreferredColourViewController: UIViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ColourDetails", for: indexPath) as! PreferredColourTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ColourCell", for: indexPath) as! PreferredColourTableViewCell
         let preferrdColor = preferredColourList?.data[indexPath.row]
         cell.preferredColourNameLabel.text = "\(preferrdColor?.name ?? "")"
         cell.actualColourUIView.backgroundColor = UIColor(named: preferrdColor?.color ?? "")
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ColourCell", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ColourCell", let indexPath = sender as? IndexPath {
+            let destinationVC = segue.destination as! AdditionalInfoViewController
+            let selectedPreferredColour = preferredColourList?.data[indexPath.row]
+            destinationVC.colorData = selectedPreferredColour
+        }
+    }
 }

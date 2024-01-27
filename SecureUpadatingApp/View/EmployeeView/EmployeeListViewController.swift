@@ -69,12 +69,12 @@ class EmployeeListViewController: UIViewController,UITableViewDataSource, UITabl
     }
     
     func tableView (_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Cell", sender: indexPath)
+        performSegue(withIdentifier: "EmployeeCell", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "Cell", let indexPath = sender as? IndexPath {
+        if segue.identifier == "EmployeeCell", let indexPath = sender as? IndexPath {
             let destinationVC = segue.destination as! SelectEmployeeViewController
             let selectedEmployee = employeeList?.data[indexPath.row]
             destinationVC.employeeData = selectedEmployee

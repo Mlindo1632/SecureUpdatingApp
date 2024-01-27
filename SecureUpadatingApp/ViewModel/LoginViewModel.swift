@@ -11,7 +11,6 @@ protocol LoginViewModelDelegate: AnyObject {
     
     func didSuccessfullyLogin(loginModel: LogInModel)
     func didFailLogin(error: Error)
-   
 }
 
 class LoginViewModel: LoginAPIServiceDelegate {
