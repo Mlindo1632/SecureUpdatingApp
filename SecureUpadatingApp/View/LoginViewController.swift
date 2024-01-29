@@ -57,6 +57,7 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         navigateToSelectEmployee()
         loginActivityIndicator.isHidden = true
         
+        
     }
 
     func didFailLogin(error: Error) {

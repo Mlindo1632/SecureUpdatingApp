@@ -21,7 +21,7 @@ class SelectEmployeeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        configureItems()
+        configureNextButton()
         updateUI()
         setupDatePicker()
         navigationItem.hidesBackButton = true
@@ -41,6 +41,7 @@ class SelectEmployeeViewController: UIViewController {
         toolbar.setItems([doneButton], animated: false)
         dOBTextfield.inputAccessoryView = toolbar
     }
+    
     @objc func doneButtonTapped() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -53,7 +54,7 @@ class SelectEmployeeViewController: UIViewController {
         }
     }
     
-    func configureItems() {
+    func configureNextButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(fowardAction))
     }
     
@@ -62,7 +63,7 @@ class SelectEmployeeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func updateUI() {
+     func updateUI() {
         guard let employeeData = employeeData else { return }
         selectedEmployeeFullNameLabel.text = "\(employeeData.firstName ?? "") \(employeeData.lastName ?? "")"
         selectedEmployeeEmailLabel.text = "\(employeeData.email ?? "")"

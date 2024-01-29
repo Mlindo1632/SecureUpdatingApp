@@ -13,6 +13,7 @@ struct EmployeeListModel: Codable {
 }
 
 struct Employee: Codable {
+    
     var id: Int?
     var firstName: String?
     var lastName: String?
@@ -20,7 +21,7 @@ struct Employee: Codable {
     var avatar: String?
     
     enum CodingKeys: String, CodingKey {
-       
+  
        case firstName = "first_name"
        case lastName = "last_name"
        case email = "email"

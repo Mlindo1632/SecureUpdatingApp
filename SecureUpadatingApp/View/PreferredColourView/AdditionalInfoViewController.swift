@@ -19,6 +19,7 @@ class AdditionalInfoViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         updateUI()
+        configureItems()
     }
     
     private func updateUI() {
@@ -34,7 +35,7 @@ class AdditionalInfoViewController: UIViewController {
         }
         
         @objc func fowardAction() {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdditionalInfoViewController") as! AdditionalInfoViewController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
             navigationController?.pushViewController(vc, animated: true)
         }
     }
