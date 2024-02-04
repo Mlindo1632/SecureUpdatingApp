@@ -60,7 +60,7 @@ class SelectEmployeeViewController: UIViewController {
     
     @objc func fowardAction() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdditionalInfoViewController") as! AdditionalInfoViewController
-        navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
     }
     
      func updateUI() {

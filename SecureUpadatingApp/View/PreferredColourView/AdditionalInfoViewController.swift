@@ -28,8 +28,6 @@ class AdditionalInfoViewController: UIViewController {
        // selectedActualColourView.backgroundColor = colorData.name.
     }
     
-    
-    
         func configureItems() {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(fowardAction))
         }

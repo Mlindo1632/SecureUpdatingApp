@@ -12,6 +12,9 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBOutlet var loginActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private var emailTextfield: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet var emailErrorLabel: UILabel!
+    @IBOutlet var passwordErrorLabel: UILabel!
+    @IBOutlet var loginButton: UIButton!
     
     
    private var loginViewModel: LoginViewModel!
@@ -21,6 +24,67 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         // Do any additional setup after loading the view.
         setupViewModel()
         loginActivityIndicator.isHidden = true
+        checkValidTextFields()
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+    }
+    
+   
+    @IBAction func emailTextFieldDidChange(_ sender: Any) {
+               if let textField = emailTextfield.text
+            {
+              if let errorMessage = invalidEmailAddress(textField)
+               {
+                  emailErrorLabel.text = errorMessage
+                  emailErrorLabel.isHidden = false
+              } else {
+                  emailErrorLabel.isHidden = true
+              }
+           }
+            checkValidTextFields()
+    }
+    
+    func invalidEmailAddress(_ value: String) -> String?
+    {
+        if !value.hasSuffix("@reqres.in")
+        {
+            return "Please enter a vaild email"
+        }
+        return nil
+    }
+        
+    @IBAction func passwordTextFieldEditingChanged(_ sender: Any) {
+        if let textField = passwordTextField.text
+        {
+            if let errorMessage = invalidPassword(textField)
+            {
+                passwordErrorLabel.text = errorMessage
+                passwordErrorLabel.isHidden = false
+            } else {
+                passwordErrorLabel.isHidden = true
+                
+            }
+        }
+    }
+        
+    func invalidPassword(_ value: String) -> String?
+    {
+        if value.count < 6
+        {
+            return "Minimum 6 characters"
+        }
+        return nil
+    }
+    
+    func checkValidTextFields() {
+        if emailErrorLabel.isHidden && passwordErrorLabel.isHidden
+        {
+            loginButton.isEnabled = true
+        }
+        else
+        {
+            loginButton.isEnabled = false
+        }
     }
     
     func setupViewModel() {
@@ -35,7 +99,6 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
-        return
     }
     
     func navigateToSelectEmployee() {
