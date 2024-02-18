@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct LogInModel: Codable {
-    
+struct LoginModel: Codable {
     var token: String
 }

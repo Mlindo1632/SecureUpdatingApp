@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewModelDelegate {
+class LoginViewController: UIViewController {
     
     @IBOutlet var loginActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private var emailTextfield: UITextField!
@@ -16,82 +16,50 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBOutlet var passwordErrorLabel: UILabel!
     @IBOutlet var loginButton: UIButton!
     
-    
-   private var loginViewModel: LoginViewModel!
+    var loginViewModel: LoginViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setupViewModel()
-        loginActivityIndicator.isHidden = true
-        checkValidTextFields()
+        loginViewModel = LoginViewModel()
+        loginViewModel.delegate = self
+        
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
-    }
-    
-   
-    @IBAction func emailTextFieldDidChange(_ sender: Any) {
-               if let textField = emailTextfield.text
-            {
-              if let errorMessage = invalidEmailAddress(textField)
-               {
-                  emailErrorLabel.text = errorMessage
-                  emailErrorLabel.isHidden = false
-              } else {
-                  emailErrorLabel.isHidden = true
-              }
-           }
-            checkValidTextFields()
-    }
-    
-    func invalidEmailAddress(_ value: String) -> String?
-    {
-        if !value.hasSuffix("@reqres.in")
-        {
-            return "Please enter a vaild email"
-        }
-        return nil
-    }
         
-    @IBAction func passwordTextFieldEditingChanged(_ sender: Any) {
-        if let textField = passwordTextField.text
-        {
-            if let errorMessage = invalidPassword(textField)
-            {
-                passwordErrorLabel.text = errorMessage
-                passwordErrorLabel.isHidden = false
-            } else {
-                passwordErrorLabel.isHidden = true
-                
-            }
-        }
-    }
+        loginActivityIndicator.isHidden = true
         
-    func invalidPassword(_ value: String) -> String?
-    {
-        if value.count < 6
-        {
-            return "Minimum 6 characters"
-        }
-        return nil
+        emailTextfield.delegate = self
+        passwordTextField.delegate = self
     }
     
-    func checkValidTextFields() {
-        if emailErrorLabel.isHidden && passwordErrorLabel.isHidden
-        {
-            loginButton.isEnabled = true
-        }
-        else
-        {
-            loginButton.isEnabled = false
-        }
-    }
+//    func invalidEmailAddress(_ value: String) -> String? {
+//        if !value.hasSuffix("@reqres.in") {
+//            
+//            return "Please enter a vaild email"
+//        }
+//        return nil
+//    }
+        
     
-    func setupViewModel() {
-        let loginAPIService = LoginAPIService()
-        let loginRepository = LoginRepository(loginAPIService: loginAPIService)
-        loginViewModel = LoginViewModel(loginRepository: loginRepository)
-        loginViewModel.delegate = self
+        
+//    func invalidPassword(_ value: String) -> String? {
+//        if value.count < 6 {
+//            return "Minimum 6 characters"
+//        }
+//        return nil
+//    }
+    
+//    func checkValidTextFields() {
+//        if emailErrorLabel.isHidden && passwordErrorLabel.isHidden {
+//            loginButton.isEnabled = true
+//        } else {
+//            loginButton.isEnabled = false
+//       }
+//    }
+    
+    func stopAndHideActivityIndicator() {
+        loginActivityIndicator.stopAnimating()
+        loginActivityIndicator.isHidden = true
     }
     
     func invalidCredentialsAlert() {
@@ -107,27 +75,33 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
         loginActivityIndicator.isHidden = false
         loginActivityIndicator.startAnimating()
         
         guard let email = emailTextfield.text, let password = passwordTextField.text else { return }
         loginViewModel.loginUser(email: email, password: password)
     }
-    
-    func didSuccessfullyLogin(loginModel: LogInModel) {
-        print("Login successful. User token is: \(loginModel.token)")
-        navigateToSelectEmployee()
-        loginActivityIndicator.isHidden = true
-        
-        
-    }
+}
 
+extension LoginViewController: LoginViewModelDelegate {
+    func didSuccessfullyLogin(token: String) {
+        print("Login successful. User token is \(token)")
+        navigateToSelectEmployee()
+        stopAndHideActivityIndicator()
+    }
+    
     func didFailLogin(error: Error) {
         print("Login failed. Error: \(error.localizedDescription)")
         invalidCredentialsAlert()
-        loginActivityIndicator.isHidden = true
+        stopAndHideActivityIndicator()
     }
-    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        passwordErrorLabel.isHidden = false
+        emailErrorLabel.isHidden = false
+     
+    }
 }
 

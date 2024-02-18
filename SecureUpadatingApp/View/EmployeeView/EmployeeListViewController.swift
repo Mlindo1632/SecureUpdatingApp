@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeeListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,EmployeeListViewModelDelegate  {
+class EmployeeListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet  private var tableView: UITableView!
     
@@ -16,8 +16,6 @@ class EmployeeListViewController: UIViewController,UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         navigationItem.hidesBackButton = true
         setUpViewModel()
         employeeListViewModel.getEmployees()
@@ -33,28 +31,19 @@ class EmployeeListViewController: UIViewController,UITableViewDataSource, UITabl
         tableView.delegate = self
     }
     
-    func didReceiveList(employeeList: EmployeeListModel) {
-        
-        self.employeeList = employeeList
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    func didNotReceiveList(error: Error) {
-        print("Failed to print employees. Error: \(error.localizedDescription)")
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employeeList?.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as! EmployeeListTableViewCell
         let emp = employeeList?.data[indexPath.row]
         cell.fullNameLabel.text = "\(emp?.firstName ?? "") \(emp?.lastName ?? "")"
         cell.emailLabel.text = "\(emp?.email ?? "")"
+        
+//        if let imageData = Data(base64Encoded: emp?.avatar ?? "", options: .ignoreUnknownCharacters),
+//           let image = UIImage(data: imageData) {
+//            cell.avatarImageView.image = image
         
         if let url = URL(string: emp?.avatar ?? "") {
             URLSession.shared.dataTask(with: url) { data, _, error in
@@ -73,11 +62,24 @@ class EmployeeListViewController: UIViewController,UITableViewDataSource, UITabl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "EmployeeCell", let indexPath = sender as? IndexPath {
             let destinationVC = segue.destination as! SelectEmployeeViewController
             let selectedEmployee = employeeList?.data[indexPath.row]
             destinationVC.employeeData = selectedEmployee
         }
+    }
+}
+
+extension EmployeeListViewController: EmployeeListViewModelDelegate {
+    
+    func didReceiveList(employeeList: EmployeeListModel) {
+        self.employeeList = employeeList
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didNotReceiveList(error: Error) {
+        print("Failed to print employees. Error: \(error.localizedDescription)")
     }
 }

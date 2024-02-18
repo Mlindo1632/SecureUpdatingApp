@@ -8,12 +8,10 @@
 import Foundation
 
 struct PreferredColourModel: Codable {
-    
     var data: [Colours]
 }
 
-    struct Colours: Codable {
-        
+ struct Colours: Codable {
         var name: String?
         var color: String?
 }

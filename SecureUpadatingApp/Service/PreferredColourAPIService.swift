@@ -19,11 +19,6 @@ class PreferredColourAPIService {
         guard let url = URL(string: "https://reqres.in/api/unknown?per_page=12") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                self.delegate?.didReceiveList(result: .failure(error))
-                return
-            }
-            
             if let data = data {
                 do {
                     let preferredColourList = try JSONDecoder().decode(PreferredColourModel.self, from: data)

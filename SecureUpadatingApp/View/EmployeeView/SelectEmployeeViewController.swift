@@ -9,6 +9,8 @@ import UIKit
 
 class SelectEmployeeViewController: UIViewController {
     
+    
+    
     @IBOutlet var selectedEmployeeImageView: UIImageView!
     @IBOutlet var selectedEmployeeFullNameLabel: UILabel!
     @IBOutlet var selectedEmployeeEmailLabel: UILabel!
@@ -19,8 +21,6 @@ class SelectEmployeeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         configureNextButton()
         updateUI()
         setupDatePicker()
@@ -63,14 +63,23 @@ class SelectEmployeeViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
     }
     
-     func updateUI() {
+    private func updateUI() {
         guard let employeeData = employeeData else { return }
         selectedEmployeeFullNameLabel.text = "\(employeeData.firstName ?? "") \(employeeData.lastName ?? "")"
         selectedEmployeeEmailLabel.text = "\(employeeData.email ?? "")"
+         
+         
+         // convert imagestring to usable data for imageView
+         
+//         if let imageData = Data(base64Encoded: employeeData.avatar ?? "", options: .ignoreUnknownCharacters),
+//                    let image = UIImage(data: imageData) {
+//                     selectedEmployeeImageView.image = image
+                 
         
         if let url = URL(string: employeeData.avatar ?? "") {
             URLSession.shared.dataTask(with: url) { data, _,error in
                 if let data = data, let image = UIImage(data: data) {
+                    
                     DispatchQueue.main.async {
                         self.selectedEmployeeImageView.image = image
                         self.fullNameAndEmailStackView.isHidden = false

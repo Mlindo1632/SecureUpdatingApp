@@ -19,11 +19,7 @@ class EmployeeListAPIService {
         guard let url = URL(string: "https://reqres.in/api/users?page=1&per_page=12") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                self.delegate?.didReceiveList(result: .failure(error))
-                return
-            }
-            
+          
             if let data = data {
                 do {
                     let empList = try JSONDecoder().decode(EmployeeListModel.self, from: data)
@@ -35,5 +31,18 @@ class EmployeeListAPIService {
         }.resume()
     }
 }
-    
+
+// trying to implement below
+
+//protocol EmployeeListAPIServiceDelegate: AnyObject {
+//    func didReceiveList(result: Result<EmployeeListModel, Error>)
+//}
+//
+//class EmployeeListAPIService: APIService {
+//    
+//    let apiService = APIService()
+//    
+//    apiService.fetchData(from: URL(string: "https://reqres.in/api/login"), completion: <#T##(Result<T, Error>) -> Void#>
+//}
+//    
 

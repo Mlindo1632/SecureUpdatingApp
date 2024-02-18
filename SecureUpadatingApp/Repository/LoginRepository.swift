@@ -8,12 +8,13 @@
 import Foundation
 
 class LoginRepository {
-    let loginAPIService: LoginAPIService
+   let loginAPIService: LoginAPIServiceDelegate
     
-    init(loginAPIService: LoginAPIService) {
+    init(loginAPIService: LoginAPIServiceDelegate = LoginAPIService()) {
         self.loginAPIService = loginAPIService
     }
-    func loginUser(email: String, password: String) {
-        loginAPIService.loginUser(email: email, password: password)
+    
+    func loginUser(email: String, password: String, completion: @escaping (Result<LoginModel, Error>) -> Void) {
+        loginAPIService.loginUser(email: email, password: password, completion: completion)
     }
 }

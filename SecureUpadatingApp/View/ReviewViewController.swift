@@ -11,7 +11,7 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet var reviewFullName: UILabel!
     
-    var reviewData: SelectEmployeeViewController?
+    var reviewData: Employee?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +19,8 @@ class ReviewViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
+    private func updateUI() {
         guard let reviewData = reviewData else { return }
-       reviewFullName.text = "\(reviewData.employeeData?.firstName ?? "")"
+        reviewFullName.text = "\(reviewData.firstName ?? "ll") \(reviewData.lastName ?? "ll")"
     }
 }
