@@ -18,10 +18,11 @@ class LoginViewModel: LoginAPIServiceDelegate {
     
     weak var delegate: LoginViewModelDelegate?
     
-    let loginRepository: LoginRepository
+    private let loginRepository: LoginRepository
     
     init(loginRepository: LoginRepository) {
         self.loginRepository = loginRepository
+        self.loginRepository.loginAPIService.delegate = self
     }
     
         func validate(email: String, password: String) -> Bool {

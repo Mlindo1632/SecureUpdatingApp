@@ -3,15 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>reqres_login</key>
-    <string>https://reqres.in/api/login</string>
-
-    <key>reqres_emplooyee_list</key>
-    <string>https://reqres.in/api/users?page=1&amp;per_page=12</string>
-
-    <key>reqres_preferred_color_list</key>
-    <string>https://reqres.in/api/unknown?per_page=12</string>
-
-    <key>reqres_update_details</key>
-    <string>https://reqres.in/api/users</string>
+	<string>https://reqres.in/api/</string>
+	<key>reqres_emplooyee_list</key>
+	<string>https://reqres.in/api/users?page=1&amp;per_page=12</string>
+	<key>reqres_preferred_color_list</key>
+	<string>https://reqres.in/api/unknown?per_page=12</string>
+	<key>reqres_update_details</key>
+	<string>https://reqres.in/api/users</string>
 </dict>
 </plist>

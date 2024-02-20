@@ -14,6 +14,7 @@ protocol LoginAPIServiceDelegate: AnyObject {
 class LoginAPIService {
     
     weak var delegate: LoginAPIServiceDelegate?
+    
     func loginUser(email: String, password: String) {
         guard let plistPath = Bundle.main.path(forResource: "Reqres-Info", ofType: "plist"),
               let plistData = FileManager.default.contents(atPath: plistPath),
@@ -22,12 +23,13 @@ class LoginAPIService {
               let url = URL(string: baseURL + "login") else {
             return
         }
+        let credentials = ["email": email, "password": password]
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let credentials = ["email": email, "password": password]
+        
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: credentials)
