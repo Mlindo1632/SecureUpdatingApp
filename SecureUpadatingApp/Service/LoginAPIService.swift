@@ -8,18 +8,18 @@
 import Foundation
 
 protocol LoginAPIServiceDelegate: AnyObject {
-    func loginUser(email: String, password: String, completion: @escaping (Result<LoginModel, Error>) -> Void)
+    func didReceiveResponse(result: Result<LoginModel, Error>)
 }
 
-class LoginAPIService: LoginAPIServiceDelegate {
+class LoginAPIService {
     
-    func loginUser(email: String, password: String, completion: @escaping (Result<LoginModel, Error>) -> Void) {
+    weak var delegate: LoginAPIServiceDelegate?
+    func loginUser(email: String, password: String) {
         guard let plistPath = Bundle.main.path(forResource: "Reqres-Info", ofType: "plist"),
               let plistData = FileManager.default.contents(atPath: plistPath),
               let plist = try? PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as? [String: Any],
               let baseURL = plist["reqres_login"] as? String,
               let url = URL(string: baseURL + "login") else {
-            completion(.failure(NSError(domain: "LoginServiceError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid API configuration"])))
             return
         }
         
@@ -27,30 +27,30 @@ class LoginAPIService: LoginAPIServiceDelegate {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let credentials: [String: Any] = ["email": email, "password": password]
+        let credentials = ["email": email, "password": password]
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: credentials, options: [])
+            request.httpBody = try JSONSerialization.data(withJSONObject: credentials)
         } catch {
-            completion(.failure(error))
+            print("There was an error send information to the server \(error.localizedDescription)")
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                completion(.failure(error!))
                 return
             }
             
             guard response.statusCode == 200 else {
-                completion(.failure(NSError(domain: "Invaild status code", code: response.statusCode, userInfo: nil)))
+                print(NSError(domain: "Invaild status code", code: response.statusCode, userInfo: nil))
                 return
             }
+            
             do {
                 let token = try JSONDecoder().decode(LoginModel.self, from: data)
-                completion(.success(token))
+                self.delegate?.didReceiveResponse(result: .success(token))
             } catch {
-                completion(.failure(error))
+                self.delegate?.didReceiveResponse(result: .failure(error))
             }
         }
         task.resume()

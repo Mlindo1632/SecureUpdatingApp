@@ -20,8 +20,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginViewModel = LoginViewModel()
-        loginViewModel.delegate = self
+        setupViewModel()
         
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
@@ -32,30 +31,12 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
     }
     
-//    func invalidEmailAddress(_ value: String) -> String? {
-//        if !value.hasSuffix("@reqres.in") {
-//            
-//            return "Please enter a vaild email"
-//        }
-//        return nil
-//    }
-        
-    
-        
-//    func invalidPassword(_ value: String) -> String? {
-//        if value.count < 6 {
-//            return "Minimum 6 characters"
-//        }
-//        return nil
-//    }
-    
-//    func checkValidTextFields() {
-//        if emailErrorLabel.isHidden && passwordErrorLabel.isHidden {
-//            loginButton.isEnabled = true
-//        } else {
-//            loginButton.isEnabled = false
-//       }
-//    }
+    func setupViewModel(){
+        let loginAPIService = LoginAPIService()
+        let loginRepository = LoginRepository(loginAPIService: loginAPIService)
+        loginViewModel = LoginViewModel(loginRepository: loginRepository)
+        loginViewModel.delegate = self
+    }
     
     func stopAndHideActivityIndicator() {
         loginActivityIndicator.stopAnimating()
@@ -84,8 +65,9 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
-    func didSuccessfullyLogin(token: String) {
-        print("Login successful. User token is \(token)")
+    
+    func didSuccessfullyLogin(loginModel: LoginModel) {
+        print("Login successful. User token is \(loginModel.token)")
         navigateToSelectEmployee()
         stopAndHideActivityIndicator()
     }
@@ -95,13 +77,18 @@ extension LoginViewController: LoginViewModelDelegate {
         invalidCredentialsAlert()
         stopAndHideActivityIndicator()
     }
+    
+    func validateTextfields(withError error: String) {
+        emailErrorLabel.text = error
+        emailErrorLabel.isHidden = false
+        invalidCredentialsAlert()
+        stopAndHideActivityIndicator()
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        passwordErrorLabel.isHidden = false
-        emailErrorLabel.isHidden = false
-     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+    emailErrorLabel.isHidden = true
     }
 }
 
