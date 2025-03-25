@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "creative-clay-textured-background-blue-border-diy-tie-dye-art-abstract-style_53876-134220.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
