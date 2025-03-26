@@ -74,6 +74,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C01B10FD2D9336790037715E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0B830C62D91CC6F00280350 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C01B10FE2D9338870037715E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C01B11022D9339CB0037715E /* Model */,
+				C01B11012D9338D10037715E /* ServiceCall */,
+				C01B11002D9338B40037715E /* ViewModel */,
+				C01B10FF2D93389D0037715E /* View */,
+				C01B10FD2D9336790037715E /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C01B10FF2D93389D0037715E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C01B11002D9338B40037715E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C01B11012D9338D10037715E /* ServiceCall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceCall;
+			sourceTree = "<group>";
+		};
+		C01B11022D9339CB0037715E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C01B11072D94157D0037715E /* ReqResAPIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReqResAPIs;
+			sourceTree = "<group>";
+		};
+		C01B110C2D9418E40037715E /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		C01B110D2D9419210037715E /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
 		C0B830B62D91CC6F00280350 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +168,10 @@
 			children = (
 				C0B830C22D91CC6F00280350 /* AppDelegate.swift */,
 				C0B830C42D91CC6F00280350 /* SceneDelegate.swift */,
-				C0B830C62D91CC6F00280350 /* ViewController.swift */,
+				C01B11072D94157D0037715E /* ReqResAPIs */,
+				C01B110C2D9418E40037715E /* NetworkManager */,
+				C01B110D2D9419210037715E /* Reusable */,
+				C01B10FE2D9338870037715E /* Login */,
 				C0B830CB2D91CC7400280350 /* Assets.xcassets */,
 				C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */,
 				C0B830D02D91CC7400280350 /* Info.plist */,
