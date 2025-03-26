@@ -78,6 +78,7 @@ extension LoginViewController: NetworkManagerDelegate {
     func didDecodeData<T>(_ data: T) where T : Decodable {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
         print("Successfully Logged in. Token is \(data)")
+        SecureNavigation.navigate(from: self, to: EmployeeHomeViewController.self)
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField, textFieldTwo: loginView.passwordTextField, button: loginView.loginButton)
     }
     
