@@ -44,7 +44,7 @@ class LoginViewModel {
         if password.isEmpty {
             delegate?.didUpdatePasswordValidation(isValid: false, errorMessage: "Password cannot be empty")
         } else if password.count < 6 {
-            delegate?.didUpdatePasswordValidation(isValid: false, errorMessage: "Password needs to be atlea 6 characters.")
+            delegate?.didUpdatePasswordValidation(isValid: false, errorMessage: "Password needs to be atleast 6 characters.")
         } else {
             delegate?.didUpdatePasswordValidation(isValid: true, errorMessage: nil)
         }
