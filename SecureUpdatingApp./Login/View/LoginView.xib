@@ -8,12 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="SecureUpdatingApplication_" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="SecureUpdatingApp_" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="npi-Ks-85q" id="pOx-gR-FvB"/>
                 <outlet property="emailErrorLabel" destination="ibg-zc-4uS" id="CDX-6d-nR1"/>
                 <outlet property="emailTextField" destination="ukq-Iu-51J" id="myL-rP-pzq"/>
                 <outlet property="loginButton" destination="vMt-3W-wbJ" id="l7q-k5-U89"/>
+                <outlet property="loginDetailsView" destination="FrT-oa-BfC" id="oJS-jI-uTH"/>
                 <outlet property="passwordErrorLabel" destination="fl7-da-jHF" id="mcb-fj-Qpk"/>
                 <outlet property="passwordTextField" destination="zYe-HN-AyH" id="Vv1-Da-FAd"/>
             </connections>
@@ -97,6 +98,9 @@
                         <constraint firstItem="fl7-da-jHF" firstAttribute="top" secondItem="zYe-HN-AyH" secondAttribute="bottom" constant="14" id="vqM-x4-J2z"/>
                         <constraint firstItem="ukq-Iu-51J" firstAttribute="top" secondItem="Wdy-hU-CYV" secondAttribute="bottom" constant="53" id="wgd-JI-Kxo"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.borderColor" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -124,4 +128,3 @@
         </systemColor>
     </resources>
 </document>
-
