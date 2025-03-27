@@ -33,19 +33,10 @@
 		C0B830CC2D91CC7400280350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B830CB2D91CC7400280350 /* Assets.xcassets */; };
 		C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */; };
 		C0B830DA2D91CC7400280350 /* SecureUpdatingApp_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830D92D91CC7400280350 /* SecureUpdatingApp_Tests.swift */; };
-		C0B830E42D91CC7500280350 /* SecureUpdatingApp_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830E32D91CC7500280350 /* SecureUpdatingApp_UITests.swift */; };
-		C0B830E62D91CC7500280350 /* SecureUpdatingApp_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830E52D91CC7500280350 /* SecureUpdatingApp_UITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C0B830D62D91CC7400280350 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C0B830B72D91CC6F00280350 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0B830BE2D91CC6F00280350;
-			remoteInfo = SecureUpdatingApp.;
-		};
-		C0B830E02D91CC7500280350 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0B830B72D91CC6F00280350 /* Project object */;
 			proxyType = 1;
@@ -84,9 +75,6 @@
 		C0B830D02D91CC7400280350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B830D52D91CC7400280350 /* SecureUpdatingApp.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecureUpdatingApp.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B830D92D91CC7400280350 /* SecureUpdatingApp_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureUpdatingApp_Tests.swift; sourceTree = "<group>"; };
-		C0B830DF2D91CC7500280350 /* SecureUpdatingApp.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecureUpdatingApp.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0B830E32D91CC7500280350 /* SecureUpdatingApp_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureUpdatingApp_UITests.swift; sourceTree = "<group>"; };
-		C0B830E52D91CC7500280350 /* SecureUpdatingApp_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureUpdatingApp_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,13 +86,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C0B830D22D91CC7400280350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0B830DC2D91CC7500280350 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,7 +234,6 @@
 			children = (
 				C0B830C12D91CC6F00280350 /* SecureUpdatingApp. */,
 				C0B830D82D91CC7400280350 /* SecureUpdatingApp.Tests */,
-				C0B830E22D91CC7500280350 /* SecureUpdatingApp.UITests */,
 				C0B830C02D91CC6F00280350 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -263,7 +243,6 @@
 			children = (
 				C0B830BF2D91CC6F00280350 /* SecureUpdatingApp..app */,
 				C0B830D52D91CC7400280350 /* SecureUpdatingApp.Tests.xctest */,
-				C0B830DF2D91CC7500280350 /* SecureUpdatingApp.UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,15 +272,6 @@
 				C05E23BE2D94ACDB00C363FD /* LoginUnitTests */,
 			);
 			path = SecureUpdatingApp.Tests;
-			sourceTree = "<group>";
-		};
-		C0B830E22D91CC7500280350 /* SecureUpdatingApp.UITests */ = {
-			isa = PBXGroup;
-			children = (
-				C0B830E32D91CC7500280350 /* SecureUpdatingApp_UITests.swift */,
-				C0B830E52D91CC7500280350 /* SecureUpdatingApp_UITestsLaunchTests.swift */,
-			);
-			path = SecureUpdatingApp.UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,24 +312,6 @@
 			productReference = C0B830D52D91CC7400280350 /* SecureUpdatingApp.Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C0B830DE2D91CC7500280350 /* SecureUpdatingApp.UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0B830EF2D91CC7500280350 /* Build configuration list for PBXNativeTarget "SecureUpdatingApp.UITests" */;
-			buildPhases = (
-				C0B830DB2D91CC7500280350 /* Sources */,
-				C0B830DC2D91CC7500280350 /* Frameworks */,
-				C0B830DD2D91CC7500280350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C0B830E12D91CC7500280350 /* PBXTargetDependency */,
-			);
-			name = SecureUpdatingApp.UITests;
-			productName = SecureUpdatingApp.UITests;
-			productReference = C0B830DF2D91CC7500280350 /* SecureUpdatingApp.UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -374,10 +326,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					C0B830D42D91CC7400280350 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = C0B830BE2D91CC6F00280350;
-					};
-					C0B830DE2D91CC7500280350 = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = C0B830BE2D91CC6F00280350;
 					};
@@ -398,7 +346,6 @@
 			targets = (
 				C0B830BE2D91CC6F00280350 /* SecureUpdatingApp. */,
 				C0B830D42D91CC7400280350 /* SecureUpdatingApp.Tests */,
-				C0B830DE2D91CC7500280350 /* SecureUpdatingApp.UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -418,13 +365,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C0B830D32D91CC7400280350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0B830DD2D91CC7500280350 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -468,15 +408,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0B830DB2D91CC7500280350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0B830E42D91CC7500280350 /* SecureUpdatingApp_UITests.swift in Sources */,
-				C0B830E62D91CC7500280350 /* SecureUpdatingApp_UITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -484,11 +415,6 @@
 			isa = PBXTargetDependency;
 			target = C0B830BE2D91CC6F00280350 /* SecureUpdatingApp. */;
 			targetProxy = C0B830D62D91CC7400280350 /* PBXContainerItemProxy */;
-		};
-		C0B830E12D91CC7500280350 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0B830BE2D91CC6F00280350 /* SecureUpdatingApp. */;
-			targetProxy = C0B830E02D91CC7500280350 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -708,40 +634,6 @@
 			};
 			name = Release;
 		};
-		C0B830F02D91CC7500280350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lindo.SecureUpdatingApp-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SecureUpdatingApp.;
-			};
-			name = Debug;
-		};
-		C0B830F12D91CC7500280350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lindo.SecureUpdatingApp-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SecureUpdatingApp.;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -768,15 +660,6 @@
 			buildConfigurations = (
 				C0B830ED2D91CC7500280350 /* Debug */,
 				C0B830EE2D91CC7500280350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0B830EF2D91CC7500280350 /* Build configuration list for PBXNativeTarget "SecureUpdatingApp.UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0B830F02D91CC7500280350 /* Debug */,
-				C0B830F12D91CC7500280350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
