@@ -9,6 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     
+    @IBOutlet weak var loginDetailsView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
@@ -30,6 +31,9 @@ class LoginView: UIView {
         passwordErrorLabel.isHidden = true
         passwordTextField.isSecureTextEntry = true
         loginButton.isEnabled = false
+        
+        loginDetailsView.layer.borderWidth = 4
+        loginDetailsView.layer.borderColor = UIColor.blue.cgColor
     }
     
     func viewInit() {
