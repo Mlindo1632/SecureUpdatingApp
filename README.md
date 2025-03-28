@@ -17,4 +17,17 @@
   To run <b>unit tests</b>, press &#x2318;cmd and U on the keyboard
 </p>
 
-## Login Details to use &#8505;
+## &#8505; Login Details to use 
+
+<p>For <b>EMAIL/USERNAME</b> use the following reqres users:</p>
+
+<ul>
+  <li>eve.holt@reqres.in</li>
+  <li>george.bluth@reqres.in</li>
+  <li>janet.weaver@reqres.in</li>
+  <li>emma.wong@reqres.in</li>
+  <li>charles.morris@reqres.in</li>
+</ul>
+<p>
+  The <b> PASSWORD </b>textfield needs to have atleast <b> six (6) characters long </b> 
+</p>
