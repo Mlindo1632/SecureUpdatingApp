@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         loginViewModel?.delegate = self
         NetworkManager.shared.delegate = self
         
@@ -77,9 +78,9 @@ extension LoginViewController: LoginViewModelDelegate {
 extension LoginViewController: NetworkManagerDelegate {
     func didDecodeData<T>(_ data: T) where T : Decodable {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
+        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField, textFieldTwo: loginView.passwordTextField, button: loginView.loginButton)
         print("Successfully Logged in. Token is \(data)")
         SecureNavigation.navigate(from: self, to: EmployeeHomeViewController.self)
-        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField, textFieldTwo: loginView.passwordTextField, button: loginView.loginButton)
     }
     
     func didFail(_ error: APIError) {
