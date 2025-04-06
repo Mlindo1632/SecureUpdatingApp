@@ -13,7 +13,23 @@ class EmployeeHomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
-        SecureToast.showToast(message: "Successfully Logged in", backgroundColour: .green, viewController: self)
+        SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
+        title = "EMPLOYEE HOME"
+        setupNextButton()
+    }
+    
+    private func setupNextButton() {
+        let button = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
+        button.isEnabled = false
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func goToAdditionalInfo() {
+        
     }
 }
