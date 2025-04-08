@@ -203,13 +203,29 @@
 			path = ReusableUikit;
 			sourceTree = "<group>";
 		};
-		C05E23B72D949FA400C363FD /* EmployeeHome */ = {
+		C040DF442DA5B9BD00A35BA0 /* EmployeeHome */ = {
 			isa = PBXGroup;
 			children = (
 				C0DC486E2DA3EFF5002702A4 /* View */,
 				C05E23B82D94A09600C363FD /* ViewController */,
 			);
 			path = EmployeeHome;
+			sourceTree = "<group>";
+		};
+		C040DF452DA5BB4C00A35BA0 /* EmployeeList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmployeeList;
+			sourceTree = "<group>";
+		};
+		C05E23B72D949FA400C363FD /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				C040DF442DA5B9BD00A35BA0 /* EmployeeHome */,
+				C040DF452DA5BB4C00A35BA0 /* EmployeeList */,
+			);
+			path = Employee;
 			sourceTree = "<group>";
 		};
 		C05E23B82D94A09600C363FD /* ViewController */ = {
@@ -267,7 +283,7 @@
 				C01B110C2D9418E40037715E /* NetworkManager */,
 				C01B110D2D9419210037715E /* Reusable */,
 				C01B10FE2D9338870037715E /* Login */,
-				C05E23B72D949FA400C363FD /* EmployeeHome */,
+				C05E23B72D949FA400C363FD /* Employee */,
 				C0B830CB2D91CC7400280350 /* Assets.xcassets */,
 				C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */,
 				C0B830D02D91CC7400280350 /* Info.plist */,
