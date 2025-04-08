@@ -8,7 +8,9 @@
 import UIKit
 
 class EmployeeHomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var employeeHomeView: EmployeeHomeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

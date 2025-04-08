@@ -288,8 +288,8 @@
 		C0DC486E2DA3EFF5002702A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */,
 				C0DC48712DA3F07B002702A4 /* EmployeeHomeView.swift */,
+				C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
