@@ -22,6 +22,8 @@
 		C01B11292D946A220037715E /* SecureTextfieldAndButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B11282D946A220037715E /* SecureTextfieldAndButtonManager.swift */; };
 		C01B112B2D946C740037715E /* SecureNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112A2D946C740037715E /* SecureNavigation.swift */; };
 		C01B112D2D946DA50037715E /* SecureToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112C2D946DA50037715E /* SecureToast.swift */; };
+		C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */; };
+		C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */; };
 		C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */; };
 		C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */; };
 		C05E23C02D94AD7D00C363FD /* LoginServiceCallMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */; };
@@ -65,6 +67,8 @@
 		C01B11282D946A220037715E /* SecureTextfieldAndButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextfieldAndButtonManager.swift; sourceTree = "<group>"; };
 		C01B112A2D946C740037715E /* SecureNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureNavigation.swift; sourceTree = "<group>"; };
 		C01B112C2D946DA50037715E /* SecureToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureToast.swift; sourceTree = "<group>"; };
+		C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
+		C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListViewController.xib; sourceTree = "<group>"; };
 		C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewController.swift; sourceTree = "<group>"; };
 		C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeViewController.xib; sourceTree = "<group>"; };
 		C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceCallMock.swift; sourceTree = "<group>"; };
@@ -215,8 +219,50 @@
 		C040DF452DA5BB4C00A35BA0 /* EmployeeList */ = {
 			isa = PBXGroup;
 			children = (
+				C040DF4C2DA5C2CA00A35BA0 /* Model */,
+				C040DF4D2DA5C2DB00A35BA0 /* ServiceCall */,
+				C040DF4E2DA5C31300A35BA0 /* ViewModel */,
+				C040DF4B2DA5C1CD00A35BA0 /* View */,
+				C040DF462DA5BFB600A35BA0 /* ViewController */,
 			);
 			path = EmployeeList;
+			sourceTree = "<group>";
+		};
+		C040DF462DA5BFB600A35BA0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */,
+				C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C040DF4B2DA5C1CD00A35BA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C040DF4C2DA5C2CA00A35BA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C040DF4D2DA5C2DB00A35BA0 /* ServiceCall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceCall;
+			sourceTree = "<group>";
+		};
+		C040DF4E2DA5C31300A35BA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C05E23B72D949FA400C363FD /* Employee */ = {
@@ -393,6 +439,7 @@
 			files = (
 				C0DC48702DA3F00F002702A4 /* EmployeeHomeView.xib in Resources */,
 				C01B11222D945C9B0037715E /* LoginViewController.xib in Resources */,
+				C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */,
 				C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */,
 				C01B110F2D94212C0037715E /* ReqResAPIs.plist in Resources */,
 				C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */,
@@ -417,6 +464,7 @@
 			files = (
 				C01B11172D9443C90037715E /* LoginServiceCall.swift in Sources */,
 				C0B830C72D91CC6F00280350 /* LoginViewController.swift in Sources */,
+				C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */,
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
 				C01B111A2D9447F80037715E /* SecurePlistReader.swift in Sources */,
 				C01B11292D946A220037715E /* SecureTextfieldAndButtonManager.swift in Sources */,
