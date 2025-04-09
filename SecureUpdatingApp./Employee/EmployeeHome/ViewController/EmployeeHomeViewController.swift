@@ -15,6 +15,7 @@ class EmployeeHomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,12 @@ class EmployeeHomeViewController: UIViewController {
         let button = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
         button.isEnabled = false
         navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func selectEmployeeButtonPressed() {
+        let employeeListViewController = EmployeeListViewController(nibName: "EmployeeListViewController", bundle: nil)
+        
+        SecureModalPresenter.present(employeeListViewController, from: self)
     }
     
     @objc func goToAdditionalInfo() {
