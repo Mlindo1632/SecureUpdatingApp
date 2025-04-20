@@ -14,7 +14,6 @@ class EmployeeHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
     }
     
@@ -34,6 +33,9 @@ class EmployeeHomeViewController: UIViewController {
     
     @objc private func selectEmployeeButtonPressed() {
         let employeeListViewController = EmployeeListViewController(nibName: "EmployeeListViewController", bundle: nil)
+        let serviceCall = EmployeeListServiceCall()
+        let viewModel = EmployeeListViewModel(employeeListServiceCall: serviceCall)
+        employeeListViewController.employeeListViewModel = viewModel
         
         SecureModalPresenter.present(employeeListViewController, from: self)
     }

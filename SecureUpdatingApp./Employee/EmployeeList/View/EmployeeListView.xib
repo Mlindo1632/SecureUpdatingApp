@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmployeeListView" customModule="SecureUpdatingApp_" customModuleProvider="target">
+            <connections>
+                <outlet property="employeeListNavigationBar" destination="LCw-tr-SYw" id="NAV-hb-TVw"/>
+                <outlet property="employeeListTableView" destination="sJl-OK-uc7" id="5zY-LZ-08j"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-OK-uc7">
+                    <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ddn-DN-rfD" customClass="EmployeeListTableViewCell" customModule="SecureUpdatingApp_" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="180" width="393" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ddn-DN-rfD" id="pcw-Cg-h5n">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableViewCellContentView>
+                </tableViewCell>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCw-tr-SYw">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <items>
+                        <navigationItem title="Employee List" id="A0f-yK-Jt4"/>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="sJl-OK-uc7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1cw-Qm-KxV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sJl-OK-uc7" secondAttribute="trailing" id="9PF-tB-2XU"/>
+                <constraint firstItem="sJl-OK-uc7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="44" id="GYE-g2-EhQ"/>
+                <constraint firstAttribute="bottom" secondItem="sJl-OK-uc7" secondAttribute="bottom" id="V4T-fR-WXS"/>
+                <constraint firstAttribute="trailing" secondItem="LCw-tr-SYw" secondAttribute="trailing" id="Wlm-cw-9Ek"/>
+                <constraint firstItem="LCw-tr-SYw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="59" id="edx-An-ucr"/>
+                <constraint firstItem="LCw-tr-SYw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zv0-9G-VKa"/>
+            </constraints>
+            <point key="canvasLocation" x="-83.206106870229007" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
