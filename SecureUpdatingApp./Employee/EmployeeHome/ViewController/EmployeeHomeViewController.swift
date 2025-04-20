@@ -15,13 +15,13 @@ class EmployeeHomeViewController: UIViewController {
         super.viewDidLoad()
         
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
+        SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
+        title = "EMPLOYEE HOME"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
-        SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
-        title = "EMPLOYEE HOME"
         setupNextButton()
     }
     
