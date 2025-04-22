@@ -36,11 +36,21 @@ class EmployeeHomeViewController: UIViewController {
         let serviceCall = EmployeeListServiceCall()
         let viewModel = EmployeeListViewModel(employeeListServiceCall: serviceCall)
         employeeListViewController.employeeListViewModel = viewModel
+        employeeListViewController.selectionDelegate = self
         
         SecureModalPresenter.present(employeeListViewController, from: self)
     }
     
     @objc func goToAdditionalInfo() {
         
+    }
+}
+
+extension EmployeeHomeViewController: EmployeeSelectionDelegate {
+    func didSelectEmployee(_ employee: EmployeeDetails) {
+        employeeHomeView.selectedEmployeeName.text = "\(employee.firstName) \(employee.lastName)"
+        employeeHomeView.selectedEmployeeEmail.text = employee.email
+
+        employeeHomeView.employeeDetailsView.isHidden = false
     }
 }

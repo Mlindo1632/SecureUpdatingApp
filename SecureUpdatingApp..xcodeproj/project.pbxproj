@@ -60,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C01B110E2D94212C0037715E /* ReqResAPIs.plist */ = {isa = PBXFileReference; explicitFileType = text.json; path = ReqResAPIs.plist; sourceTree = "<group>"; };
+		C01B110E2D94212C0037715E /* ReqResAPIs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ReqResAPIs.plist; sourceTree = "<group>"; };
 		C01B11102D9436480037715E /* NetworkManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocols.swift; sourceTree = "<group>"; };
 		C01B11122D9437650037715E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C01B11142D94432C0037715E /* LoginTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTokenModel.swift; sourceTree = "<group>"; };
