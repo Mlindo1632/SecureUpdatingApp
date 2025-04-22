@@ -12,6 +12,10 @@ protocol EmployeeListViewModelDelegate: AnyObject {
     func didFailWithError(_ error: Error)
 }
 
+protocol EmployeeSelectionDelegate: AnyObject {
+    func didSelectEmployee(_ employee: EmployeeDetails)
+}
+
 class EmployeeListViewModel {
     
     private let employeeListServiceCall: EmployeeListServiceCallProtocol!

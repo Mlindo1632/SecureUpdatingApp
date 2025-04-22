@@ -12,6 +12,7 @@ class EmployeeListViewController: UIViewController {
     @IBOutlet weak var employeeListView: EmployeeListView!
     
      var employeeListViewModel: EmployeeListViewModel?
+     weak var selectionDelegate: EmployeeSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,8 @@ class EmployeeListViewController: UIViewController {
         employeeListView.employeeListTableView.delegate = self
         employeeListView.employeeListTableView.dataSource = self
     }
-    
 }
+
 extension EmployeeListViewController: EmployeeListViewModelDelegate {
     func didFetchEmployees() {
         employeeListView.employeeListTableView.reloadData()
@@ -45,7 +46,6 @@ extension EmployeeListViewController: EmployeeListViewModelDelegate {
     }
 }
 
-    
 extension EmployeeListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,7 +53,6 @@ extension EmployeeListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let employee = employeeListViewModel!.employee(at: indexPath.row)
         let cell = employeeListView.employeeListTableView.dequeueReusableCell(withIdentifier: "EmployeeListTableViewCell") as! EmployeeListTableViewCell
         cell.setEmployeeListCell(details: employee)
@@ -62,7 +61,10 @@ extension EmployeeListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true)
+        if let employee = employeeListViewModel?.employee(at: indexPath.row){
+            selectionDelegate?.didSelectEmployee(employee)
+            dismiss(animated: true)
+        }
     }
 }
 
