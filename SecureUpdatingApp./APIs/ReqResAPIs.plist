@@ -10,7 +10,7 @@
 
 <plist version="1.0">
 <dict>
-    <key>ReqResLoginDetails</key>
+    <key>ReqresLoginDetails</key>
     <string>https://reqres.in/api/login</string>
     <key>ReqresUsersDetails</key>
     <string>https://reqres.in/api/users?page=1&amp;per_page=12</string>

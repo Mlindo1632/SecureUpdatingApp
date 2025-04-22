@@ -19,7 +19,7 @@ struct LoginServiceCall: LoginServiceCallProtocol {
        }
     
     func loginUser(email: String, password: String) {
-        let endpoint = SecurePlistReader.readValue(key: "ReqResLoginDetails")!
+        let endpoint = SecurePlistReader.readValue(key: "ReqresLoginDetails")!
         
         let parameters: [String: Any] = ["email": email, "password": password]
         
