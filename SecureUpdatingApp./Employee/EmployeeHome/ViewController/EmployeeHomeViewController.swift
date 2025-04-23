@@ -48,6 +48,7 @@ class EmployeeHomeViewController: UIViewController {
 
 extension EmployeeHomeViewController: EmployeeSelectionDelegate {
     func didSelectEmployee(_ employee: EmployeeDetails) {
+        title = " Employee ID: \(employee.id)"
         employeeHomeView.selectedEmployeeName.text = "\(employee.firstName) \(employee.lastName)"
         employeeHomeView.selectedEmployeeEmail.text = employee.email
 
