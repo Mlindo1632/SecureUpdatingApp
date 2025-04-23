@@ -33,7 +33,7 @@ struct EmployeeListServiceCall: EmployeeListServiceCallProtocol {
                 print("Decoding employees success")
                 completion(.success(response.data))
             case .failure(let error):
-                print("error: \(error)")
+                print("Error: \(error)")
                 completion(.failure(error))
             }
         }
