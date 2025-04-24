@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EmployeeListTableViewCell: UITableViewCell {
     
@@ -13,28 +14,13 @@ class EmployeeListTableViewCell: UITableViewCell {
     @IBOutlet weak var employeeFirstName: UILabel!
     @IBOutlet weak var employeeEmail: UILabel!
     
+    let roundCorner = RoundCornerImageProcessor(radius: .widthFraction(0.5), roundingCorners: [.topLeft, .bottomRight])
+    
     func setEmployeeListCell(details: EmployeeDetails) {
-        employeeAvatar.layer.cornerRadius = employeeAvatar.layer.bounds.width / 2
-        employeeAvatar.clipsToBounds = true
-        
         employeeFirstName.text = "\(details.firstName) \(details.lastName)"
         employeeEmail.text = details.email
-        loadImage(from: details.avatar)
-        
-    }
-    
-    private func loadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else {
-            employeeAvatar.image = nil
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-            if let data = data {
-                DispatchQueue.main.async {
-                    self?.employeeAvatar.image = UIImage(data: data)
-                }
-            }
-        }.resume()
+        //loadImage(from: details.avatar)
+        let url = URL(string: details.avatar)
+        employeeAvatar.kf.setImage(with: url, options: [.processor(roundCorner)])
     }
 }
