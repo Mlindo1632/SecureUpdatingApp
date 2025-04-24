@@ -22,6 +22,7 @@
 		C01B11292D946A220037715E /* SecureTextfieldAndButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B11282D946A220037715E /* SecureTextfieldAndButtonManager.swift */; };
 		C01B112B2D946C740037715E /* SecureNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112A2D946C740037715E /* SecureNavigation.swift */; };
 		C01B112D2D946DA50037715E /* SecureToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112C2D946DA50037715E /* SecureToast.swift */; };
+		C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */; };
 		C0355D962DA6B6200011E014 /* SecureModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */; };
 		C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */; };
 		C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */; };
@@ -76,6 +77,7 @@
 		C01B11282D946A220037715E /* SecureTextfieldAndButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextfieldAndButtonManager.swift; sourceTree = "<group>"; };
 		C01B112A2D946C740037715E /* SecureNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureNavigation.swift; sourceTree = "<group>"; };
 		C01B112C2D946DA50037715E /* SecureToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureToast.swift; sourceTree = "<group>"; };
+		C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureImageHelper.swift; sourceTree = "<group>"; };
 		C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureModalPresenter.swift; sourceTree = "<group>"; };
 		C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListViewController.xib; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				C01B112A2D946C740037715E /* SecureNavigation.swift */,
 				C01B112C2D946DA50037715E /* SecureToast.swift */,
 				C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */,
+				C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */,
 			);
 			path = ReusableUikit;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				C0CE34552DAC49A300C689D8 /* EmployeeListView.swift in Sources */,
 				C0B830C72D91CC6F00280350 /* LoginViewController.swift in Sources */,
 				C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */,
+				C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */,
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
 				C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */,
 				C01B111A2D9447F80037715E /* SecurePlistReader.swift in Sources */,
