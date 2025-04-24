@@ -51,7 +51,8 @@ extension EmployeeHomeViewController: EmployeeSelectionDelegate {
         title = " Employee ID: \(employee.id)"
         employeeHomeView.selectedEmployeeName.text = "\(employee.firstName) \(employee.lastName)"
         employeeHomeView.selectedEmployeeEmail.text = employee.email
-
+        SecureImageHelper.loadCachedImage(from: employee.avatar, into: employeeHomeView.selectedEmployeeImage)
+        
         employeeHomeView.employeeDetailsView.isHidden = false
     }
 }
