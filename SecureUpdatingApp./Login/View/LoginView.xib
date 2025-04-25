@@ -72,7 +72,6 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="Wdy-hU-CYV" firstAttribute="top" secondItem="FrT-oa-BfC" secondAttribute="top" constant="80" id="0WY-uF-XDx"/>
-                        <constraint firstItem="vMt-3W-wbJ" firstAttribute="top" secondItem="zYe-HN-AyH" secondAttribute="bottom" constant="105" id="1Ae-0p-zxu"/>
                         <constraint firstItem="npi-Ks-85q" firstAttribute="leading" secondItem="FrT-oa-BfC" secondAttribute="leading" constant="146" id="2XH-BZ-Ze6"/>
                         <constraint firstItem="Wdy-hU-CYV" firstAttribute="leading" secondItem="FrT-oa-BfC" secondAttribute="leading" constant="33" id="3CK-Jy-pV5"/>
                         <constraint firstItem="ibg-zc-4uS" firstAttribute="top" secondItem="ukq-Iu-51J" secondAttribute="bottom" constant="14" id="AZe-DH-1Gr"/>
@@ -93,10 +92,8 @@
                         <constraint firstAttribute="trailing" secondItem="npi-Ks-85q" secondAttribute="trailing" constant="146" id="mfm-B6-eot"/>
                         <constraint firstAttribute="trailing" secondItem="fl7-da-jHF" secondAttribute="trailing" constant="26" id="nLA-yo-WhM"/>
                         <constraint firstItem="vMt-3W-wbJ" firstAttribute="leading" secondItem="FrT-oa-BfC" secondAttribute="leading" constant="26" id="oIn-gs-aXv"/>
-                        <constraint firstItem="zYe-HN-AyH" firstAttribute="top" secondItem="ukq-Iu-51J" secondAttribute="bottom" constant="57" id="rF7-ub-btC"/>
                         <constraint firstAttribute="trailing" secondItem="vMt-3W-wbJ" secondAttribute="trailing" constant="26" id="rMx-Xr-7de"/>
                         <constraint firstItem="fl7-da-jHF" firstAttribute="top" secondItem="zYe-HN-AyH" secondAttribute="bottom" constant="14" id="vqM-x4-J2z"/>
-                        <constraint firstItem="ukq-Iu-51J" firstAttribute="top" secondItem="Wdy-hU-CYV" secondAttribute="bottom" constant="53" id="wgd-JI-Kxo"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.borderColor" value="YES"/>
