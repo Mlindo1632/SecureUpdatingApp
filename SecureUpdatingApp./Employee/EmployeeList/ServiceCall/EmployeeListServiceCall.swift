@@ -22,11 +22,13 @@ struct EmployeeListServiceCall: EmployeeListServiceCallProtocol {
     func getEmployeeList(completion: @escaping (Result<[EmployeeDetails], APIError>) -> Void) {
         
         let endpoint = SecurePlistReader.readValue(key: "ReqresUsersDetails")!
+        
+        let headers = ["x-api-key": "reqres-free-v1"]
 
         networkManager.request(endpoint: endpoint,
                                method: .get,
                                parameters: nil,
-                               headers: nil
+                               headers: headers
         ) {(result: Result<EmployeeListModel, APIError>) in
             switch result {
             case .success(let response):
