@@ -23,10 +23,12 @@ struct LoginServiceCall: LoginServiceCallProtocol {
         
         let parameters: [String: Any] = ["email": email, "password": password]
         
+        let headers = [ "x-api-key": "reqres-free-v1"]
+        
                 networkManager.request(endpoint: endpoint,
                                       method: .post,
                                       parameters: parameters,
-                                      headers: nil
+                                      headers: headers
         ) {(result: Result<LoginTokenModel, APIError>) in
             switch result {
             case .success( _):
