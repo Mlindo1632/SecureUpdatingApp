@@ -22,10 +22,10 @@ class EmployeeHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
-        setupNextButton()
+        setupNextBarButton()
     }
     
-    private func setupNextButton() {
+    private func setupNextBarButton() {
         let button = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
         button.isEnabled = false
         navigationItem.rightBarButtonItem = button
