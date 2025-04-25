@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place of Birth" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Dk-1e-WCF" userLabel="PlaceOfBirthTextfield">
-                    <rect key="frame" x="14" y="594" width="347" height="34"/>
+                    <rect key="frame" x="14" y="523" width="347" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -51,10 +51,10 @@
                     </buttonConfiguration>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAm-8S-PBj" userLabel="EmplyeeDetailsView">
-                    <rect key="frame" x="20" y="280" width="293" height="105"/>
+                    <rect key="frame" x="20" y="280" width="293" height="133"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-CW-GpD" userLabel="Avatar">
-                            <rect key="frame" x="8" y="8" width="101" height="87"/>
+                            <rect key="frame" x="0.0" y="0.0" width="109" height="133"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTz-MT-oYo" userLabel="FullName">
@@ -81,25 +81,25 @@
                 <constraint firstItem="rE2-xA-NBR" firstAttribute="leading" secondItem="yAm-8S-PBj" secondAttribute="trailing" constant="8" id="1EC-rK-9Cb"/>
                 <constraint firstItem="yAm-8S-PBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="1f6-7o-M7X"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Ho-KL-w2a" secondAttribute="trailing" constant="17" id="7DX-zB-XaU"/>
-                <constraint firstItem="0Dk-1e-WCF" firstAttribute="top" secondItem="zA3-fR-ZHA" secondAttribute="bottom" constant="102" id="BZK-gO-5vI"/>
+                <constraint firstItem="0Dk-1e-WCF" firstAttribute="top" secondItem="zA3-fR-ZHA" secondAttribute="bottom" constant="31" id="BZK-gO-5vI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zA3-fR-ZHA" secondAttribute="trailing" constant="14" id="Bm7-fb-dxn"/>
                 <constraint firstItem="rE2-xA-NBR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Ff3-6n-d21"/>
                 <constraint firstItem="rE2-xA-NBR" firstAttribute="top" secondItem="3Ho-KL-w2a" secondAttribute="bottom" constant="55" id="Ix4-8w-2X6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yAm-8S-PBj" secondAttribute="trailing" constant="62" id="Jwj-jF-YZg"/>
                 <constraint firstItem="rE2-xA-NBR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="310" id="Py6-65-jYi"/>
                 <constraint firstItem="yAm-8S-PBj" firstAttribute="top" secondItem="3Ho-KL-w2a" secondAttribute="bottom" constant="25" id="TFm-8h-cKe"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0Dk-1e-WCF" secondAttribute="bottom" constant="150" id="UwZ-Kn-djb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0Dk-1e-WCF" secondAttribute="bottom" constant="221" id="UwZ-Kn-djb"/>
                 <constraint firstItem="3Ho-KL-w2a" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="90" id="bx3-pe-Vr7"/>
                 <constraint firstItem="0Dk-1e-WCF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="fhv-mI-9Gm"/>
                 <constraint firstAttribute="trailing" secondItem="rE2-xA-NBR" secondAttribute="trailing" id="hA1-DX-aiK"/>
                 <constraint firstItem="yAm-8S-PBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="i9A-ng-o9j"/>
                 <constraint firstItem="3Ho-KL-w2a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="l9o-ls-58y"/>
-                <constraint firstItem="rE2-xA-NBR" firstAttribute="centerY" secondItem="yAm-8S-PBj" secondAttribute="centerY" id="lOd-xe-TgT"/>
+                <constraint firstItem="rE2-xA-NBR" firstAttribute="centerY" secondItem="yAm-8S-PBj" secondAttribute="centerY" constant="-14" id="lOd-xe-TgT"/>
                 <constraint firstItem="zA3-fR-ZHA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="m6Q-He-ojW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0Dk-1e-WCF" secondAttribute="trailing" constant="14" id="wPO-PS-1pQ"/>
-                <constraint firstItem="zA3-fR-ZHA" firstAttribute="top" secondItem="yAm-8S-PBj" secondAttribute="bottom" constant="73" id="xiX-Gn-Lt3"/>
+                <constraint firstItem="zA3-fR-ZHA" firstAttribute="top" secondItem="yAm-8S-PBj" secondAttribute="bottom" constant="45" id="xiX-Gn-Lt3"/>
             </constraints>
-            <point key="canvasLocation" x="15.348837209302326" y="18.025751072961373"/>
+            <point key="canvasLocation" x="15.199999999999999" y="17.733990147783253"/>
         </view>
     </objects>
     <resources>

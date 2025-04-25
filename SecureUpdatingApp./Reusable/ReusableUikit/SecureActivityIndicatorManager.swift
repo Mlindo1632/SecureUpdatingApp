@@ -5,7 +5,6 @@
 //  Created by Lindokuhle Khumalo on 2025/03/26.
 //
 
-import Foundation
 import UIKit
 
 struct SecureAcivityIndicator {
