@@ -11,12 +11,13 @@ class LoginView: UIView {
     
     @IBOutlet weak var loginDetailsView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
-    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewInit()
