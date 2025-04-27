@@ -36,12 +36,12 @@ class EmployeeListViewController: UIViewController {
 
 extension EmployeeListViewController: EmployeeListViewModelDelegate {
     func didFetchEmployees() {
+        print("Success. Displaying employees")
         employeeListView.employeeListTableView.reloadData()
-        print("Success")
     }
     
     func didFailWithError(_ error: Error) {
-        print("FAILED")
+        print("Failed to display employees")
         dismiss(animated: true)
     }
 }
