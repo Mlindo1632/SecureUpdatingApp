@@ -15,6 +15,7 @@ class EmployeeHomeViewController: UIViewController {
         super.viewDidLoad()
         
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
+        employeeHomeView.dateOfBirthTextfield.addTarget(self, action: #selector(pickDateOfBirth), for: .touchDown)
         SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
         title = "EMPLOYEE HOME"
     }
@@ -43,6 +44,27 @@ class EmployeeHomeViewController: UIViewController {
     
     @objc func goToAdditionalInfo() {
         
+    }
+    
+    let datePicker = UIDatePicker()
+    
+    @objc func pickDateOfBirth () {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        toolBar.items = [doneButton]
+        employeeHomeView.dateOfBirthTextfield.inputAccessoryView = toolBar
+        employeeHomeView.dateOfBirthTextfield.inputView = datePicker
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date()
+    }
+    
+    @objc func doneButtonPressed() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        employeeHomeView.dateOfBirthTextfield.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
     }
 }
 
