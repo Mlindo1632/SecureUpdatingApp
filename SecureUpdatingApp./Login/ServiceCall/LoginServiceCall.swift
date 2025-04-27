@@ -32,9 +32,9 @@ struct LoginServiceCall: LoginServiceCallProtocol {
         ) {(result: Result<LoginTokenModel, APIError>) in
             switch result {
             case .success( _):
-                print("Decoding success")
+                print("Decoding token success")
             case .failure(let error):
-                print("Error: \(error)")
+                print("Failed to decode token. Error: \(error)")
             }
         }
     }
