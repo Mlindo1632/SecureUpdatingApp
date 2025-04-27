@@ -49,6 +49,7 @@
 		C0CE345C2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CE345A2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib */; };
 		C0DC48702DA3F00F002702A4 /* EmployeeHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */; };
 		C0DC48722DA3F07B002702A4 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC48712DA3F07B002702A4 /* EmployeeHomeView.swift */; };
+		C0E9330C2DBEC9A400A679FB /* SecureTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		C0CE345A2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListTableViewCell.xib; sourceTree = "<group>"; };
 		C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeView.xib; sourceTree = "<group>"; };
 		C0DC48712DA3F07B002702A4 /* EmployeeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeView.swift; sourceTree = "<group>"; };
+		C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextFieldModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				C01B112C2D946DA50037715E /* SecureToast.swift */,
 				C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */,
 				C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */,
+				C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */,
 			);
 			path = ReusableUikit;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */,
 				C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */,
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
+				C0E9330C2DBEC9A400A679FB /* SecureTextFieldModifier.swift in Sources */,
 				C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */,
 				C01B111A2D9447F80037715E /* SecurePlistReader.swift in Sources */,
 				C07066712DA6DB8D00738C0B /* EmployeeListModel.swift in Sources */,
