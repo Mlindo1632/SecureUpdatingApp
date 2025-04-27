@@ -11,13 +11,16 @@ class EmployeeHomeViewController: UIViewController {
     
     @IBOutlet weak var employeeHomeView: EmployeeHomeView!
     
+    let datePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
-        employeeHomeView.dateOfBirthTextfield.addTarget(self, action: #selector(pickDateOfBirth), for: .touchDown)
+        pickDateOfBirth()
         SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
         title = "EMPLOYEE HOME"
+        employeeHomeView.dateOfBirthTextfield.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +49,7 @@ class EmployeeHomeViewController: UIViewController {
         
     }
     
-    let datePicker = UIDatePicker()
-    
-    @objc func pickDateOfBirth () {
+    private func pickDateOfBirth () {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
@@ -57,6 +58,9 @@ class EmployeeHomeViewController: UIViewController {
         employeeHomeView.dateOfBirthTextfield.inputView = datePicker
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
+        
+        employeeHomeView.dateOfBirthTextfield.tintColor = .clear
+        
     }
     
     @objc func doneButtonPressed() {
@@ -65,6 +69,13 @@ class EmployeeHomeViewController: UIViewController {
         formatter.timeStyle = .none
         employeeHomeView.dateOfBirthTextfield.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
+    }
+}
+
+extension EmployeeHomeViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }
 

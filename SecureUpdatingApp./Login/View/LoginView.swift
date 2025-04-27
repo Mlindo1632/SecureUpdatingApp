@@ -14,10 +14,9 @@ class LoginView: UIView {
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var passwordErrorLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewInit()
@@ -32,6 +31,9 @@ class LoginView: UIView {
         passwordErrorLabel.isHidden = true
         passwordTextField.isSecureTextEntry = true
         loginButton.isEnabled = false
+        
+        SecureTextFieldModifier.roundCorners(textField: emailTextField, radius: 12.5)
+        SecureTextFieldModifier.roundCorners(textField: passwordTextField, radius: 12.5)
         
         loginDetailsView.layer.borderWidth = 4
         loginDetailsView.layer.borderColor = UIColor.blue.cgColor
