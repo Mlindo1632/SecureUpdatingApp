@@ -37,15 +37,15 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email/ Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GWg-bM-avB">
-                            <rect key="frame" x="25" y="133" width="170" height="25"/>
+                            <rect key="frame" x="25" y="133" width="170" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="RQs-jz-xbO"/>
+                                <constraint firstAttribute="height" constant="40" id="RQs-jz-xbO"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnG-Xr-JHc">
-                            <rect key="frame" x="25" y="168" width="195" height="20"/>
+                            <rect key="frame" x="25" y="183" width="195" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="o9J-y1-blO"/>
                             </constraints>
@@ -54,15 +54,15 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bwi-ZP-5dK">
-                            <rect key="frame" x="25" y="240" width="170" height="25"/>
+                            <rect key="frame" x="25" y="255" width="170" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="Rnh-xo-SZg"/>
+                                <constraint firstAttribute="height" constant="40" id="Rnh-xo-SZg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardAppearance="alert"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbm-5m-ABe">
-                            <rect key="frame" x="25" y="275" width="195" height="42"/>
+                            <rect key="frame" x="25" y="305" width="195" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="4Db-yZ-b6s"/>
                             </constraints>
@@ -71,15 +71,15 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="V45-NK-bMz">
-                            <rect key="frame" x="100" y="346" width="20" height="20"/>
+                            <rect key="frame" x="100" y="376" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="zXh-cB-YD4"/>
                             </constraints>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgO-zr-evR">
-                            <rect key="frame" x="25" y="388" width="170" height="35"/>
+                            <rect key="frame" x="25" y="418" width="170" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="2w6-LC-2HI"/>
+                                <constraint firstAttribute="height" constant="40" id="2w6-LC-2HI"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="LOGIN" cornerStyle="capsule"/>

@@ -32,11 +32,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place of Birth" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Dk-1e-WCF" userLabel="PlaceOfBirthTextfield">
-                    <rect key="frame" x="16" y="318" width="288" height="34"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place of Birth" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Dk-1e-WCF" userLabel="PlaceOfBirthTextfield">
+                    <rect key="frame" x="16" y="318" width="288" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="Bac-qv-wMy"/>
+                        <constraint firstAttribute="height" constant="40" id="Bac-qv-wMy"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -78,10 +77,10 @@
                         <constraint firstAttribute="height" constant="133" id="fIm-am-SIB"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of Birth" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zA3-fR-ZHA" userLabel="DateOfBirthTextfield">
-                    <rect key="frame" x="16" y="372" width="288" height="34"/>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of Birth" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zA3-fR-ZHA" userLabel="DateOfBirthTextfield">
+                    <rect key="frame" x="16" y="378" width="288" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="1Io-bS-G9Y"/>
+                        <constraint firstAttribute="height" constant="40" id="1Io-bS-G9Y"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
