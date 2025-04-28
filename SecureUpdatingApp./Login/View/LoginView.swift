@@ -32,8 +32,8 @@ class LoginView: UIView {
         passwordTextField.isSecureTextEntry = true
         loginButton.isEnabled = false
         
-        SecureTextFieldModifier.roundCorners(textField: emailTextField, radius: 12.5)
-        SecureTextFieldModifier.roundCorners(textField: passwordTextField, radius: 12.5)
+        SecureTextFieldModifier.roundCorners(textField: emailTextField, radius: 20.0)
+        SecureTextFieldModifier.roundCorners(textField: passwordTextField, radius: 20.0)
         
         loginDetailsView.layer.borderWidth = 4
         loginDetailsView.layer.borderColor = UIColor.blue.cgColor

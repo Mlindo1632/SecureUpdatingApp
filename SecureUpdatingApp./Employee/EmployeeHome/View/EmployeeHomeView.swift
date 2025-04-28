@@ -27,8 +27,8 @@ class EmployeeHomeView: UIView {
         viewInit()
         
         employeeDetailsView.isHidden = true
-        SecureTextFieldModifier.roundCorners(textField: placeOfBirthTextfield, radius: 16.5)
-        SecureTextFieldModifier.roundCorners(textField: dateOfBirthTextfield, radius: 16.5)
+        SecureTextFieldModifier.roundCorners(textField: placeOfBirthTextfield, radius: 20.0)
+        SecureTextFieldModifier.roundCorners(textField: dateOfBirthTextfield, radius: 20.0)
     }
     
     func viewInit() {
