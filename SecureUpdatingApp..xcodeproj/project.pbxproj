@@ -27,6 +27,7 @@
 		C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */; };
 		C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */; };
 		C049993D2DBA0EDE003820F6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C049993C2DBA0EDE003820F6 /* Kingfisher */; };
+		C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */; };
 		C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */; };
 		C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */; };
 		C05E23C02D94AD7D00C363FD /* LoginServiceCallMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */; };
@@ -82,6 +83,7 @@
 		C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureModalPresenter.swift; sourceTree = "<group>"; };
 		C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListViewController.xib; sourceTree = "<group>"; };
+		C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewModel.swift; sourceTree = "<group>"; };
 		C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewController.swift; sourceTree = "<group>"; };
 		C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeViewController.xib; sourceTree = "<group>"; };
 		C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceCallMock.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		C040DF442DA5B9BD00A35BA0 /* EmployeeHome */ = {
 			isa = PBXGroup;
 			children = (
+				C04DA0352DC1047E0030E68F /* ViewModel */,
 				C0DC486E2DA3EFF5002702A4 /* View */,
 				C05E23B82D94A09600C363FD /* ViewController */,
 			);
@@ -292,6 +295,14 @@
 			isa = PBXGroup;
 			children = (
 				C0CE34522DA7041D00C689D8 /* EmployeeListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C04DA0352DC1047E0030E68F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -530,6 +541,7 @@
 				C0B830C52D91CC6F00280350 /* SceneDelegate.swift in Sources */,
 				C01B11152D94432C0037715E /* LoginTokenModel.swift in Sources */,
 				C0CE345B2DAC5D2F00C689D8 /* EmployeeListTableViewCell.swift in Sources */,
+				C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */,
 				C0DC48722DA3F07B002702A4 /* EmployeeHomeView.swift in Sources */,
 				C01B11252D94684A0037715E /* SecureActivityIndicatorManager.swift in Sources */,
 				C01B111E2D9458DB0037715E /* LoginView.swift in Sources */,

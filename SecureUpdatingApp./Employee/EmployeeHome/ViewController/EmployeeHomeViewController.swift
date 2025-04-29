@@ -11,28 +11,37 @@ class EmployeeHomeViewController: UIViewController {
     
     @IBOutlet weak var employeeHomeView: EmployeeHomeView!
     
+    private var nextBarButton: UIBarButtonItem!
+    private var viewModel: EmployeeHomeViewModel?
     let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
-        pickDateOfBirth()
-        SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
         title = "EMPLOYEE HOME"
+        SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
+        setUpTextFieldsAndSelectedEmployeeButton()
+        pickDateOfBirth()
+        setupNextBarButton()
+    
         employeeHomeView.dateOfBirthTextfield.delegate = self
+        viewModel?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
-        setupNextBarButton()
     }
     
-    private func setupNextBarButton() {
-        let button = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
-        button.isEnabled = false
-        navigationItem.rightBarButtonItem = button
+    private func setUpTextFieldsAndSelectedEmployeeButton() {
+        employeeHomeView.placeOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
+        employeeHomeView.dateOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
+        employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
+    }
+    
+     private func setupNextBarButton() {
+        let nextBarButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
+        nextBarButton.isEnabled = false
+        navigationItem.rightBarButtonItem = nextBarButton
     }
     
     @objc private func selectEmployeeButtonPressed() {
@@ -70,10 +79,25 @@ class EmployeeHomeViewController: UIViewController {
         employeeHomeView.dateOfBirthTextfield.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+    
+    @objc private func textFieldChanged(_ sender: UITextField) {
+        viewModel?.placeOfBirthTextField = employeeHomeView.placeOfBirthTextfield.text ?? ""
+        viewModel?.dateOfBirthTextField = employeeHomeView.dateOfBirthTextfield.text ?? ""
+    }
+    
+    func pickedImage(_ image: UIImage) {
+        employeeHomeView.selectedEmployeeImage.image = image
+        viewModel?.selectedImage = image
+    }
+}
+
+extension EmployeeHomeViewController: EmployeeHomeViewModelDelegate {
+    func didUpdateForm(isValid: Bool) {
+        nextBarButton.isEnabled = isValid
+    }
 }
 
 extension EmployeeHomeViewController: UITextFieldDelegate {
-
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
