@@ -79,7 +79,10 @@ extension LoginViewController: LoginViewModelDelegate {
 extension LoginViewController: NetworkManagerDelegate {
     func didDecodeData<T>(_ data: T) where T : Decodable {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
-        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField, textFieldTwo: loginView.passwordTextField, button: loginView.loginButton)
+        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
+                                                        textFieldTwo: loginView.passwordTextField,
+                                                        button: loginView.loginButton)
+        
         print("Successfully Logged in. Token is \(data)")
         SecureNavigation.navigate(from: self, to: EmployeeHomeViewController.self)
     }
@@ -88,7 +91,9 @@ extension LoginViewController: NetworkManagerDelegate {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
         print("Password or Email may be incorrect. Please try again")
         SecureAlertController.showAlert(on: self, message: "password or email may be incorrect. Please try again", title: "OK")
-        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField, textFieldTwo: loginView.passwordTextField, button: loginView.loginButton)
+        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
+                                                        textFieldTwo: loginView.passwordTextField,
+                                                        button: loginView.loginButton)
     }
 }
 
