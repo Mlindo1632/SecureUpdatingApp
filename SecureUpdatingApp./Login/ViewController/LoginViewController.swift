@@ -82,9 +82,13 @@ extension LoginViewController: NetworkManagerDelegate {
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
                                                         textFieldTwo: loginView.passwordTextField,
                                                         button: loginView.loginButton)
-        
         print("Successfully Logged in. Token is \(data)")
-        SecureNavigation.navigate(from: self, to: EmployeeHomeViewController.self)
+    
+        DispatchQueue.main.async {
+            let employeeHomeViewModel = EmployeeHomeViewModel()
+            let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
+            SecureNavigation.navigate(from: self, to: employeeHomeViewController)
+        }
     }
     
     func didFail(_ error: APIError) {

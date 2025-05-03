@@ -28,6 +28,7 @@
 		C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */; };
 		C049993D2DBA0EDE003820F6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C049993C2DBA0EDE003820F6 /* Kingfisher */; };
 		C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */; };
+		C04E15E02DC65A4F00A551FB /* SecureDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E15DF2DC65A4F00A551FB /* SecureDatePicker.swift */; };
 		C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */; };
 		C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */; };
 		C05E23C02D94AD7D00C363FD /* LoginServiceCallMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */; };
@@ -84,6 +85,7 @@
 		C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListViewController.xib; sourceTree = "<group>"; };
 		C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewModel.swift; sourceTree = "<group>"; };
+		C04E15DF2DC65A4F00A551FB /* SecureDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDatePicker.swift; sourceTree = "<group>"; };
 		C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewController.swift; sourceTree = "<group>"; };
 		C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeViewController.xib; sourceTree = "<group>"; };
 		C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceCallMock.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */,
 				C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */,
 				C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */,
+				C04E15DF2DC65A4F00A551FB /* SecureDatePicker.swift */,
 			);
 			path = ReusableUikit;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
 				C0E9330C2DBEC9A400A679FB /* SecureTextFieldModifier.swift in Sources */,
 				C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */,
+				C04E15E02DC65A4F00A551FB /* SecureDatePicker.swift in Sources */,
 				C01B111A2D9447F80037715E /* SecurePlistReader.swift in Sources */,
 				C07066712DA6DB8D00738C0B /* EmployeeListModel.swift in Sources */,
 				C0355D962DA6B6200011E014 /* SecureModalPresenter.swift in Sources */,

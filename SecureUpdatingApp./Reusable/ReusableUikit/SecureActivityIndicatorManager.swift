@@ -8,6 +8,7 @@
 import UIKit
 
 struct SecureAcivityIndicator {
+    
     static func stopAndHideActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
         DispatchQueue.main.async {
             activityIndicator.stopAnimating()

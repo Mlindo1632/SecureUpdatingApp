@@ -12,24 +12,23 @@ protocol EmployeeHomeViewModelDelegate: AnyObject {
 }
 
 class EmployeeHomeViewModel {
-    
     weak var delegate: EmployeeHomeViewModelDelegate?
-    
+
     var selectedImage: UIImage? {
-        didSet { verifyForm() }
+        didSet { validateForm() }
     }
-    
     var placeOfBirthTextField: String = "" {
-        didSet { verifyForm() }
+        didSet { validateForm() }
     }
-    
     var dateOfBirthTextField: String = "" {
-        didSet { verifyForm() }
+        didSet { validateForm() }
     }
-    
-    private func verifyForm() {
-        let isValid = selectedImage != nil && !placeOfBirthTextField.isEmpty && !dateOfBirthTextField.isEmpty
+
+    private func validateForm() {
+        let isValid = selectedImage != nil &&
+                      !placeOfBirthTextField.trimmingCharacters(in: .whitespaces).isEmpty &&
+                      !dateOfBirthTextField.trimmingCharacters(in: .whitespaces).isEmpty
+
         delegate?.didUpdateForm(isValid: isValid)
     }
-    
 }
