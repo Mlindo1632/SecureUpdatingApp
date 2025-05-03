@@ -8,9 +8,9 @@
 import UIKit
 
 struct SecureToast {
+    
     static func showToast(message: String, backgroundColour: UIColor, in parentView: UIView) {
         DispatchQueue.main.async {
-            
             let labelHeight: CGFloat = 50
             let bottomPadding = parentView.safeAreaInsets.bottom
             let finalY = parentView.bounds.height - labelHeight - bottomPadding - 10

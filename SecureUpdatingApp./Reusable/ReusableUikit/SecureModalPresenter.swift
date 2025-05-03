@@ -8,6 +8,7 @@
 import UIKit
 
 struct SecureModalPresenter {
+    
     static func present(
         _ viewController: UIViewController,
         from presentingVC: UIViewController,

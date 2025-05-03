@@ -12,6 +12,7 @@ protocol LoginServiceCallProtocol {
 }
 
 struct LoginServiceCall: LoginServiceCallProtocol {
+    
     private let networkManager: NetworkManagerProtocol
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {

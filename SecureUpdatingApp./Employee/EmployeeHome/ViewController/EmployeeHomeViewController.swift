@@ -13,18 +13,33 @@ class EmployeeHomeViewController: UIViewController {
     
     private var nextBarButton: UIBarButtonItem!
     private var viewModel: EmployeeHomeViewModel?
-    let datePicker = UIDatePicker()
+    
+       init(viewModel: EmployeeHomeViewModel) {
+           self.viewModel = viewModel
+           super.init(nibName: String(describing: EmployeeHomeViewController.self), bundle: nil)
+       }
+
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "EMPLOYEE HOME"
         SecureToast.showToast(message: "Successfully Logged In", backgroundColour: .green, in: self.view)
+        
         setUpTextFieldsAndSelectedEmployeeButton()
-        pickDateOfBirth()
         setupNextBarButton()
-    
+        
         employeeHomeView.dateOfBirthTextfield.delegate = self
         viewModel?.delegate = self
+        
+        SecureDatePicker.attachDatePicker(to: employeeHomeView.dateOfBirthTextfield)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissDatePicker))
+            tapGesture.cancelsTouchesInView = false
+            view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +48,13 @@ class EmployeeHomeViewController: UIViewController {
     }
     
     private func setUpTextFieldsAndSelectedEmployeeButton() {
-        employeeHomeView.placeOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
-        employeeHomeView.dateOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
+        employeeHomeView.placeOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .allEvents)
+        employeeHomeView.dateOfBirthTextfield.addTarget(self, action: #selector(textFieldChanged(_:)), for: .allEvents)
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
     }
     
      private func setupNextBarButton() {
-        let nextBarButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
+        nextBarButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
         nextBarButton.isEnabled = false
         navigationItem.rightBarButtonItem = nextBarButton
     }
@@ -58,36 +73,13 @@ class EmployeeHomeViewController: UIViewController {
         
     }
     
-    private func pickDateOfBirth () {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
-        toolBar.items = [doneButton]
-        employeeHomeView.dateOfBirthTextfield.inputAccessoryView = toolBar
-        employeeHomeView.dateOfBirthTextfield.inputView = datePicker
-        datePicker.datePickerMode = .date
-        datePicker.maximumDate = Date()
-        
-        employeeHomeView.dateOfBirthTextfield.tintColor = .clear
-        
-    }
-    
-    @objc func doneButtonPressed() {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        employeeHomeView.dateOfBirthTextfield.text = formatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-    }
-    
     @objc private func textFieldChanged(_ sender: UITextField) {
         viewModel?.placeOfBirthTextField = employeeHomeView.placeOfBirthTextfield.text ?? ""
         viewModel?.dateOfBirthTextField = employeeHomeView.dateOfBirthTextfield.text ?? ""
     }
     
-    func pickedImage(_ image: UIImage) {
-        employeeHomeView.selectedEmployeeImage.image = image
-        viewModel?.selectedImage = image
+    @objc func dismissDatePicker() {
+        view.endEditing(true)
     }
 }
 
@@ -109,6 +101,10 @@ extension EmployeeHomeViewController: EmployeeSelectionDelegate {
         employeeHomeView.selectedEmployeeName.text = "\(employee.firstName) \(employee.lastName)"
         employeeHomeView.selectedEmployeeEmail.text = employee.email
         SecureImageHelper.loadCachedImage(from: employee.avatar, into: employeeHomeView.selectedEmployeeImage)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.viewModel?.selectedImage = self?.employeeHomeView.selectedEmployeeImage.image
+        }
         
         employeeHomeView.employeeDetailsView.isHidden = false
     }

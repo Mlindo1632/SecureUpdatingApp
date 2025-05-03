@@ -8,6 +8,7 @@
 import UIKit
 
 struct SecureAlertController {
+    
     static func showAlert(on viewcontroller: UIViewController, message: String?, title: String?) {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
