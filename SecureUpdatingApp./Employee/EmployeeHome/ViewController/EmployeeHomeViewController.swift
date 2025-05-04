@@ -70,7 +70,8 @@ class EmployeeHomeViewController: UIViewController {
     }
     
     @objc func goToAdditionalInfo() {
-        
+        let additionalInfoViewController = AdditionalInfoViewController()
+        SecureNavigation.navigate(from: self, to: additionalInfoViewController)
     }
     
     @objc private func textFieldChanged(_ sender: UITextField) {

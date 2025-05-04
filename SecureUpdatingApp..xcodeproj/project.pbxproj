@@ -44,6 +44,10 @@
 		C0B830CC2D91CC7400280350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B830CB2D91CC7400280350 /* Assets.xcassets */; };
 		C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */; };
 		C0B830DA2D91CC7400280350 /* SecureUpdatingApp_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830D92D91CC7400280350 /* SecureUpdatingApp_Tests.swift */; };
+		C0C3594F2DC7C10400405038 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3594E2DC7C10400405038 /* AdditionalInfoView.swift */; };
+		C0C359512DC7C24800405038 /* AdditionalInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C359502DC7C24800405038 /* AdditionalInfoView.xib */; };
+		C0C359542DC7C35000405038 /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C359522DC7C35000405038 /* AdditionalInfoViewController.swift */; };
+		C0C359552DC7C35000405038 /* AdditionalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C359532DC7C35000405038 /* AdditionalInfoViewController.xib */; };
 		C0CE34532DA7041D00C689D8 /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE34522DA7041D00C689D8 /* EmployeeListViewModel.swift */; };
 		C0CE34552DAC49A300C689D8 /* EmployeeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE34542DAC49A300C689D8 /* EmployeeListView.swift */; };
 		C0CE34572DAC4A3B00C689D8 /* EmployeeListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CE34562DAC4A3B00C689D8 /* EmployeeListView.xib */; };
@@ -104,6 +108,10 @@
 		C0B830D02D91CC7400280350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B830D52D91CC7400280350 /* SecureUpdatingApp.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecureUpdatingApp.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B830D92D91CC7400280350 /* SecureUpdatingApp_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureUpdatingApp_Tests.swift; sourceTree = "<group>"; };
+		C0C3594E2DC7C10400405038 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
+		C0C359502DC7C24800405038 /* AdditionalInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalInfoView.xib; sourceTree = "<group>"; };
+		C0C359522DC7C35000405038 /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
+		C0C359532DC7C35000405038 /* AdditionalInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalInfoViewController.xib; sourceTree = "<group>"; };
 		C0CE34522DA7041D00C689D8 /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
 		C0CE34542DAC49A300C689D8 /* EmployeeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListView.swift; sourceTree = "<group>"; };
 		C0CE34562DAC4A3B00C689D8 /* EmployeeListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListView.xib; sourceTree = "<group>"; };
@@ -375,6 +383,7 @@
 				C01B110D2D9419210037715E /* Reusable */,
 				C01B10FE2D9338870037715E /* Login */,
 				C05E23B72D949FA400C363FD /* Employee */,
+				C0C3594B2DC7B0FA00405038 /* AdditionalInfo */,
 				C0B830CB2D91CC7400280350 /* Assets.xcassets */,
 				C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */,
 				C0B830D02D91CC7400280350 /* Info.plist */,
@@ -390,6 +399,33 @@
 				C05E23BE2D94ACDB00C363FD /* LoginUnitTests */,
 			);
 			path = SecureUpdatingApp.Tests;
+			sourceTree = "<group>";
+		};
+		C0C3594B2DC7B0FA00405038 /* AdditionalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3594C2DC7B11100405038 /* View */,
+				C0C3594D2DC7B12D00405038 /* ViewController */,
+			);
+			path = AdditionalInfo;
+			sourceTree = "<group>";
+		};
+		C0C3594C2DC7B11100405038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3594E2DC7C10400405038 /* AdditionalInfoView.swift */,
+				C0C359502DC7C24800405038 /* AdditionalInfoView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0C3594D2DC7B12D00405038 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0C359522DC7C35000405038 /* AdditionalInfoViewController.swift */,
+				C0C359532DC7C35000405038 /* AdditionalInfoViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C0CE34582DAC5CD000C689D8 /* CellView */ = {
@@ -499,9 +535,11 @@
 			files = (
 				C0DC48702DA3F00F002702A4 /* EmployeeHomeView.xib in Resources */,
 				C0CE34572DAC4A3B00C689D8 /* EmployeeListView.xib in Resources */,
+				C0C359512DC7C24800405038 /* AdditionalInfoView.xib in Resources */,
 				C01B11222D945C9B0037715E /* LoginViewController.xib in Resources */,
 				C0CE345C2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib in Resources */,
 				C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */,
+				C0C359552DC7C35000405038 /* AdditionalInfoViewController.xib in Resources */,
 				C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */,
 				C01B110F2D94212C0037715E /* ReqResAPIs.plist in Resources */,
 				C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */,
@@ -538,6 +576,7 @@
 				C0355D962DA6B6200011E014 /* SecureModalPresenter.swift in Sources */,
 				C01B11292D946A220037715E /* SecureTextfieldAndButtonManager.swift in Sources */,
 				C01B11132D9437650037715E /* NetworkManager.swift in Sources */,
+				C0C3594F2DC7C10400405038 /* AdditionalInfoView.swift in Sources */,
 				C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */,
 				C01B11272D94694F0037715E /* SecureAlertController.swift in Sources */,
 				C0CE34532DA7041D00C689D8 /* EmployeeListViewModel.swift in Sources */,
@@ -546,6 +585,7 @@
 				C01B11152D94432C0037715E /* LoginTokenModel.swift in Sources */,
 				C0CE345B2DAC5D2F00C689D8 /* EmployeeListTableViewCell.swift in Sources */,
 				C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */,
+				C0C359542DC7C35000405038 /* AdditionalInfoViewController.swift in Sources */,
 				C0DC48722DA3F07B002702A4 /* EmployeeHomeView.swift in Sources */,
 				C01B11252D94684A0037715E /* SecureActivityIndicatorManager.swift in Sources */,
 				C01B111E2D9458DB0037715E /* LoginView.swift in Sources */,
