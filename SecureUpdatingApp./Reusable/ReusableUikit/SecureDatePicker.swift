@@ -25,6 +25,7 @@ private var dateFormatter: DateFormatter {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
     formatter.timeStyle = .none
+    formatter.dateFormat = "yyy-MM-dd"
     return formatter
 }
 
