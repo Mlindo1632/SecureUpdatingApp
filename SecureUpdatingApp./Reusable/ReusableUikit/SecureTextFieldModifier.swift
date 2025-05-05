@@ -9,8 +9,10 @@ import UIKit
 
 struct SecureTextFieldModifier {
     
-   static func roundCorners(textField: UITextField, radius: CGFloat) {
-        textField.layer.cornerRadius = radius
-        textField.layer.masksToBounds = true
+   static func modifyTextFields(textField: UITextField, radius: CGFloat) {
+       textField.layer.cornerRadius = radius
+       textField.layer.masksToBounds = true
+       textField.layer.borderWidth = 1.75
+       textField.layer.borderColor = UIColor.black.cgColor
     }
 }

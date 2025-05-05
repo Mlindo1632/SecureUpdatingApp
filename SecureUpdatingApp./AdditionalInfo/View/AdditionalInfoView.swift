@@ -29,7 +29,7 @@ class AdditionalInfoView: UIView {
         
         colourDetailsView.isHidden = true
         
-        SecureTextFieldModifier.roundCorners(textField: residentialAddressTextField, radius: 20)
+        SecureTextFieldModifier.modifyTextFields(textField: residentialAddressTextField, radius: 20)
     }
     
     func viewInit() {
