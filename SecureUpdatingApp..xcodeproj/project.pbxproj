@@ -404,8 +404,8 @@
 		C0C3594B2DC7B0FA00405038 /* AdditionalInfo */ = {
 			isa = PBXGroup;
 			children = (
-				C0C3594C2DC7B11100405038 /* View */,
-				C0C3594D2DC7B12D00405038 /* ViewController */,
+				C0F9F8DF2DC904D600116600 /* AdditionalInfoHome */,
+				C0F9F8DE2DC9037100116600 /* ColourList */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -444,6 +444,22 @@
 				C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C0F9F8DE2DC9037100116600 /* ColourList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ColourList;
+			sourceTree = "<group>";
+		};
+		C0F9F8DF2DC904D600116600 /* AdditionalInfoHome */ = {
+			isa = PBXGroup;
+			children = (
+				C0C3594D2DC7B12D00405038 /* ViewController */,
+				C0C3594C2DC7B11100405038 /* View */,
+			);
+			path = AdditionalInfoHome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
