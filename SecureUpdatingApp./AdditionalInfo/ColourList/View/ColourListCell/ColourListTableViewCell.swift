@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftHEXColors
 
 class ColourListTableViewCell: UITableViewCell {
     
@@ -14,5 +15,6 @@ class ColourListTableViewCell: UITableViewCell {
     
     func setColourListCell(details: ColourDetails) {
         colourName.text = details.name
+        colourView.backgroundColor = UIColor(hexString: details.color)
     }
 }

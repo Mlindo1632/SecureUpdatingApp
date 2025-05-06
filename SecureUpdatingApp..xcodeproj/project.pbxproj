@@ -23,6 +23,7 @@
 		C01B112B2D946C740037715E /* SecureNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112A2D946C740037715E /* SecureNavigation.swift */; };
 		C01B112D2D946DA50037715E /* SecureToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B112C2D946DA50037715E /* SecureToast.swift */; };
 		C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B53432DBA660B00B5B972 /* SecureImageHelper.swift */; };
+		C02D3E392DCA9F1B00289B24 /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = C02D3E382DCA9F1B00289B24 /* SwiftHEXColors */; };
 		C0355D962DA6B6200011E014 /* SecureModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0355D952DA6B61F0011E014 /* SecureModalPresenter.swift */; };
 		C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040DF472DA5C14700A35BA0 /* EmployeeListViewController.swift */; };
 		C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */; };
@@ -145,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02D3E392DCA9F1B00289B24 /* SwiftHEXColors in Frameworks */,
 				C049993D2DBA0EDE003820F6 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +557,7 @@
 			name = SecureUpdatingApp.;
 			packageProductDependencies = (
 				C049993C2DBA0EDE003820F6 /* Kingfisher */,
+				C02D3E382DCA9F1B00289B24 /* SwiftHEXColors */,
 			);
 			productName = SecureUpdatingApp.;
 			productReference = C0B830BF2D91CC6F00280350 /* SecureUpdatingApp..app */;
@@ -608,6 +611,7 @@
 			mainGroup = C0B830B62D91CC6F00280350;
 			packageReferences = (
 				C049993B2DBA0EDD003820F6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C02D3E372DCA9F1B00289B24 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
 			);
 			productRefGroup = C0B830C02D91CC6F00280350 /* Products */;
 			projectDirPath = "";
@@ -967,6 +971,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C02D3E372DCA9F1B00289B24 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.1;
+			};
+		};
 		C049993B2DBA0EDD003820F6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -978,6 +990,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C02D3E382DCA9F1B00289B24 /* SwiftHEXColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02D3E372DCA9F1B00289B24 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */;
+			productName = SwiftHEXColors;
+		};
 		C049993C2DBA0EDE003820F6 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C049993B2DBA0EDD003820F6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
