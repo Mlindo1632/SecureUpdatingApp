@@ -17,6 +17,7 @@ class AdditionalInfoViewController: UIViewController {
         
         title = "Additinal Information"
         setupNextBarButton()
+        setupSelectColourButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +31,20 @@ class AdditionalInfoViewController: UIViewController {
        navigationItem.rightBarButtonItem = nextBarButton
    }
     
+    func setupSelectColourButton() {
+        additionalInfoView.selectColourButton.addTarget(self, action: #selector(selectColourButtonPressed), for: .touchUpInside)
+    }
+    
     @objc func goToReview() {
         
+    }
+    
+    @objc func selectColourButtonPressed() {
+        let colourListViewController = ColourListViewController(nibName: "ColourListViewController", bundle: nil)
+        let serviceCall = ColourListServiceCall()
+        let viewModel = ColourListViewModel(colourListServiceCall: serviceCall)
+        colourListViewController.colourListViewModel = viewModel
+        
+        SecureModalPresenter.present(colourListViewController, from: self)
     }
 }

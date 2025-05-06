@@ -38,6 +38,13 @@
 		C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07066722DA6F55500738C0B /* EmployeeListServiceCall.swift */; };
 		C07834AB2D956D50001449F0 /* LoginViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07834AA2D956D50001449F0 /* LoginViewModelDelegateMock.swift */; };
 		C07834AD2D956DFE001449F0 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07834AC2D956DFE001449F0 /* LoginViewModelTests.swift */; };
+		C092FC382DC91CE900F21558 /* ColourListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092FC372DC91CE900F21558 /* ColourListViewModel.swift */; };
+		C092FC3A2DC92AAF00F21558 /* ColourListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092FC392DC92AAF00F21558 /* ColourListView.swift */; };
+		C092FC3C2DC92AE700F21558 /* ColourListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C092FC3B2DC92AE700F21558 /* ColourListView.xib */; };
+		C0A041A22DC93280001EB66C /* ColourListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A041A02DC93280001EB66C /* ColourListViewController.swift */; };
+		C0A041A32DC93280001EB66C /* ColourListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A041A12DC93280001EB66C /* ColourListViewController.xib */; };
+		C0A041A72DC956E9001EB66C /* ColourListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A041A52DC956E9001EB66C /* ColourListTableViewCell.swift */; };
+		C0A041A82DC956E9001EB66C /* ColourListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A041A62DC956E9001EB66C /* ColourListTableViewCell.xib */; };
 		C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830C22D91CC6F00280350 /* AppDelegate.swift */; };
 		C0B830C52D91CC6F00280350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830C42D91CC6F00280350 /* SceneDelegate.swift */; };
 		C0B830C72D91CC6F00280350 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B830C62D91CC6F00280350 /* LoginViewController.swift */; };
@@ -56,6 +63,8 @@
 		C0DC48702DA3F00F002702A4 /* EmployeeHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */; };
 		C0DC48722DA3F07B002702A4 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC48712DA3F07B002702A4 /* EmployeeHomeView.swift */; };
 		C0E9330C2DBEC9A400A679FB /* SecureTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */; };
+		C0F9F8E62DC90FD200116600 /* ColourListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9F8E52DC90FD200116600 /* ColourListModel.swift */; };
+		C0F9F8E82DC9157400116600 /* ColourListServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9F8E72DC9157400116600 /* ColourListServiceCall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +108,13 @@
 		C07066722DA6F55500738C0B /* EmployeeListServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListServiceCall.swift; sourceTree = "<group>"; };
 		C07834AA2D956D50001449F0 /* LoginViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		C07834AC2D956DFE001449F0 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		C092FC372DC91CE900F21558 /* ColourListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListViewModel.swift; sourceTree = "<group>"; };
+		C092FC392DC92AAF00F21558 /* ColourListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListView.swift; sourceTree = "<group>"; };
+		C092FC3B2DC92AE700F21558 /* ColourListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColourListView.xib; sourceTree = "<group>"; };
+		C0A041A02DC93280001EB66C /* ColourListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListViewController.swift; sourceTree = "<group>"; };
+		C0A041A12DC93280001EB66C /* ColourListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColourListViewController.xib; sourceTree = "<group>"; };
+		C0A041A52DC956E9001EB66C /* ColourListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListTableViewCell.swift; sourceTree = "<group>"; };
+		C0A041A62DC956E9001EB66C /* ColourListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColourListTableViewCell.xib; sourceTree = "<group>"; };
 		C0B830BF2D91CC6F00280350 /* SecureUpdatingApp..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureUpdatingApp..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B830C22D91CC6F00280350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B830C42D91CC6F00280350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +136,8 @@
 		C0DC486F2DA3F00F002702A4 /* EmployeeHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeView.xib; sourceTree = "<group>"; };
 		C0DC48712DA3F07B002702A4 /* EmployeeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeView.swift; sourceTree = "<group>"; };
 		C0E9330B2DBEC9A400A679FB /* SecureTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextFieldModifier.swift; sourceTree = "<group>"; };
+		C0F9F8E52DC90FD200116600 /* ColourListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListModel.swift; sourceTree = "<group>"; };
+		C0F9F8E72DC9157400116600 /* ColourListServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListServiceCall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +373,15 @@
 			path = LoginUnitTests;
 			sourceTree = "<group>";
 		};
+		C0A041A42DC955E1001EB66C /* ColourListCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0A041A52DC956E9001EB66C /* ColourListTableViewCell.swift */,
+				C0A041A62DC956E9001EB66C /* ColourListTableViewCell.xib */,
+			);
+			path = ColourListCell;
+			sourceTree = "<group>";
+		};
 		C0B830B62D91CC6F00280350 = {
 			isa = PBXGroup;
 			children = (
@@ -461,8 +488,8 @@
 		C0F9F8DF2DC904D600116600 /* AdditionalInfoHome */ = {
 			isa = PBXGroup;
 			children = (
-				C0C3594D2DC7B12D00405038 /* ViewController */,
 				C0C3594C2DC7B11100405038 /* View */,
+				C0C3594D2DC7B12D00405038 /* ViewController */,
 			);
 			path = AdditionalInfoHome;
 			sourceTree = "<group>";
@@ -470,6 +497,8 @@
 		C0F9F8E02DC9098700116600 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C0A041A02DC93280001EB66C /* ColourListViewController.swift */,
+				C0A041A12DC93280001EB66C /* ColourListViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -477,6 +506,9 @@
 		C0F9F8E12DC9098F00116600 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C092FC392DC92AAF00F21558 /* ColourListView.swift */,
+				C092FC3B2DC92AE700F21558 /* ColourListView.xib */,
+				C0A041A42DC955E1001EB66C /* ColourListCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,6 +516,7 @@
 		C0F9F8E22DC909C500116600 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C092FC372DC91CE900F21558 /* ColourListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +524,7 @@
 		C0F9F8E32DC909CB00116600 /* ServiceCall */ = {
 			isa = PBXGroup;
 			children = (
+				C0F9F8E72DC9157400116600 /* ColourListServiceCall.swift */,
 			);
 			path = ServiceCall;
 			sourceTree = "<group>";
@@ -498,6 +532,7 @@
 		C0F9F8E42DC909DB00116600 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0F9F8E52DC90FD200116600 /* ColourListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,12 +629,15 @@
 				C0C359512DC7C24800405038 /* AdditionalInfoView.xib in Resources */,
 				C01B11222D945C9B0037715E /* LoginViewController.xib in Resources */,
 				C0CE345C2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib in Resources */,
+				C0A041A82DC956E9001EB66C /* ColourListTableViewCell.xib in Resources */,
+				C092FC3C2DC92AE700F21558 /* ColourListView.xib in Resources */,
 				C040DF4A2DA5C14800A35BA0 /* EmployeeListViewController.xib in Resources */,
 				C0C359552DC7C35000405038 /* AdditionalInfoViewController.xib in Resources */,
 				C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */,
 				C01B110F2D94212C0037715E /* ReqResAPIs.plist in Resources */,
 				C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */,
 				C01B11202D9459AF0037715E /* LoginView.xib in Resources */,
+				C0A041A32DC93280001EB66C /* ColourListViewController.xib in Resources */,
 				C0B830CC2D91CC7400280350 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,12 +656,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A041A22DC93280001EB66C /* ColourListViewController.swift in Sources */,
 				C01B11172D9443C90037715E /* LoginServiceCall.swift in Sources */,
 				C0CE34552DAC49A300C689D8 /* EmployeeListView.swift in Sources */,
 				C0B830C72D91CC6F00280350 /* LoginViewController.swift in Sources */,
 				C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */,
 				C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */,
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
+				C0A041A72DC956E9001EB66C /* ColourListTableViewCell.swift in Sources */,
 				C0E9330C2DBEC9A400A679FB /* SecureTextFieldModifier.swift in Sources */,
 				C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */,
 				C04E15E02DC65A4F00A551FB /* SecureDatePicker.swift in Sources */,
@@ -636,13 +676,17 @@
 				C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */,
 				C01B11272D94694F0037715E /* SecureAlertController.swift in Sources */,
 				C0CE34532DA7041D00C689D8 /* EmployeeListViewModel.swift in Sources */,
+				C092FC382DC91CE900F21558 /* ColourListViewModel.swift in Sources */,
 				C01B11112D9436490037715E /* NetworkManagerProtocols.swift in Sources */,
+				C0F9F8E82DC9157400116600 /* ColourListServiceCall.swift in Sources */,
 				C0B830C52D91CC6F00280350 /* SceneDelegate.swift in Sources */,
 				C01B11152D94432C0037715E /* LoginTokenModel.swift in Sources */,
+				C0F9F8E62DC90FD200116600 /* ColourListModel.swift in Sources */,
 				C0CE345B2DAC5D2F00C689D8 /* EmployeeListTableViewCell.swift in Sources */,
 				C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */,
 				C0C359542DC7C35000405038 /* AdditionalInfoViewController.swift in Sources */,
 				C0DC48722DA3F07B002702A4 /* EmployeeHomeView.swift in Sources */,
+				C092FC3A2DC92AAF00F21558 /* ColourListView.swift in Sources */,
 				C01B11252D94684A0037715E /* SecureActivityIndicatorManager.swift in Sources */,
 				C01B111E2D9458DB0037715E /* LoginView.swift in Sources */,
 				C01B112B2D946C740037715E /* SecureNavigation.swift in Sources */,
