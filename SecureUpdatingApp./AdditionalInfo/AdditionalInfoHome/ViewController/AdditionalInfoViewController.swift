@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftHEXColors
 
 class AdditionalInfoViewController: UIViewController {
     
@@ -23,6 +24,14 @@ class AdditionalInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        additionalInfoView.preferredColourView.layer.cornerRadius = additionalInfoView.preferredColourView.layer.bounds.width / 2
+        additionalInfoView.preferredColourView.layer.borderWidth = 3.69
+        additionalInfoView.preferredColourView.layer.borderColor = UIColor.white.cgColor
+        additionalInfoView.preferredColour.font = UIFont(name: "Helvetica-Bold", size: 17)
     }
     
     private func setupNextBarButton() {
@@ -44,7 +53,18 @@ class AdditionalInfoViewController: UIViewController {
         let serviceCall = ColourListServiceCall()
         let viewModel = ColourListViewModel(colourListServiceCall: serviceCall)
         colourListViewController.colourListViewModel = viewModel
+        colourListViewController.colourSelectionDelegate = self
         
         SecureModalPresenter.present(colourListViewController, from: self)
+    }
+}
+
+extension AdditionalInfoViewController: ColourSelectionDelegate {
+    
+    func didSelectColour(_ colour: ColourDetails) {
+        additionalInfoView.preferredColour.text = colour.name
+        additionalInfoView.preferredColourView.backgroundColor = UIColor(hexString: colour.color)
+        
+        additionalInfoView.colourDetailsView.isHidden = false
     }
 }

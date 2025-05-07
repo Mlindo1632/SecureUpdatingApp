@@ -17,4 +17,10 @@ class ColourListTableViewCell: UITableViewCell {
         colourName.text = details.name
         colourView.backgroundColor = UIColor(hexString: details.color)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        colourView.layer.cornerRadius = colourView.frame.width / 2
+        colourView.clipsToBounds = true
+    }
 }

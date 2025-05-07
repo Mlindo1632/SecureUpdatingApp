@@ -11,6 +11,7 @@ class ColourListViewController: UIViewController {
     
     @IBOutlet weak var colourListView: ColourListView!
     var colourListViewModel: ColourListViewModel?
+    weak var colourSelectionDelegate: ColourSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ extension ColourListViewController: ColourListViewModelDelegate {
     }
     
     func didFailWithError(_ error: Error) {
-        print("Failed")
+        print("Failed to display colours")
         dismiss(animated: true)
     }
 }
@@ -50,5 +51,12 @@ extension ColourListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setColourListCell(details: colour)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let colour = colourListViewModel?.colour(at: indexPath.row) {
+            colourSelectionDelegate?.didSelectColour(colour)
+            dismiss(animated: true)
+        }
     }
 }
