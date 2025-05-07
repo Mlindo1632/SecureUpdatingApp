@@ -12,6 +12,10 @@ protocol ColourListViewModelDelegate: AnyObject {
     func didFailWithError(_ error: Error)
 }
 
+protocol ColourSelectionDelegate: AnyObject {
+    func didSelectColour(_ colour: ColourDetails)
+}
+
 class ColourListViewModel {
     
     private let colourListServiceCall: ColourListServiceCallProtocol!

@@ -12,7 +12,6 @@ class ColourListView: UIView {
     @IBOutlet weak var colourListNavigationBar: UINavigationBar!
     @IBOutlet weak var colourListTableView: UITableView!
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewInit()
@@ -28,7 +27,4 @@ class ColourListView: UIView {
         xibView.frame = self.bounds
         addSubview(xibView)
     }
-    
 }
-
-
