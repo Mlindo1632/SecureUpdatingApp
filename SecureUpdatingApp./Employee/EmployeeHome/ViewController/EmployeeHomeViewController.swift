@@ -70,7 +70,9 @@ class EmployeeHomeViewController: UIViewController {
     }
     
     @objc func goToAdditionalInfo() {
-        let additionalInfoViewController = AdditionalInfoViewController()
+        let additionalInfoViewModel = AdditionalInfoHomeViewModel()
+        let additionalInfoViewController = AdditionalInfoViewController(additionalInfoViewModel: additionalInfoViewModel)
+        
         SecureNavigation.navigate(from: self, to: additionalInfoViewController)
     }
     
