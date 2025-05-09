@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdditionalInfoView" customModule="SecureUpdatingApp_" customModuleProvider="target">
             <connections>
                 <outlet property="colourDetailsView" destination="Tu3-LP-3hH" id="wgg-Ge-YEg"/>
+                <outlet property="genderLabel" destination="APW-RE-gId" id="TmI-DG-u2G"/>
                 <outlet property="genderSegmentedControl" destination="qZb-RJ-yRJ" id="0J6-Ri-XYD"/>
                 <outlet property="preferredColour" destination="DFb-YT-XtJ" id="X9H-Lu-X7h"/>
                 <outlet property="preferredColourView" destination="FEd-rG-81d" id="dDd-kI-fn7"/>
@@ -94,7 +95,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APW-RE-gId">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APW-RE-gId" userLabel="genderLabel">
                     <rect key="frame" x="78" y="445" width="164" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="8bk-X7-DMl"/>

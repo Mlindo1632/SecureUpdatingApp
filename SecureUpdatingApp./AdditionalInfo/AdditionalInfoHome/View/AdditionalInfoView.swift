@@ -16,6 +16,7 @@ class AdditionalInfoView: UIView {
     @IBOutlet weak var preferredColour: UILabel!
     @IBOutlet weak var selectColourButton: UIButton!
     @IBOutlet weak var residentialAddressTextField: UITextField!
+    @IBOutlet weak var genderLabel: UILabel!
     
     
     override init(frame: CGRect) {
@@ -28,6 +29,7 @@ class AdditionalInfoView: UIView {
         viewInit()
         
         colourDetailsView.isHidden = true
+        genderLabel.isHidden = true
         
         SecureTextFieldModifier.modifyTextFields(textField: residentialAddressTextField, radius: 20)
     }

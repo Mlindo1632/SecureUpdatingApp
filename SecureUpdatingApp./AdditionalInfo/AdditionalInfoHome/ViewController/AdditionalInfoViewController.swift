@@ -72,7 +72,10 @@ class AdditionalInfoViewController: UIViewController {
     }
     
     @objc func genderChanged(_ sender: UISegmentedControl) {
-        additionalInfoViewModel?.chosenGender = sender
+        let selectedGender = sender.titleForSegment(at: sender.selectedSegmentIndex) ?? ""
+        additionalInfoView.genderLabel.text = selectedGender
+        additionalInfoView.genderLabel.isHidden = false
+        additionalInfoViewModel?.chosenGenderLabel = selectedGender
     }
     
     @objc func textFieldChanged() {

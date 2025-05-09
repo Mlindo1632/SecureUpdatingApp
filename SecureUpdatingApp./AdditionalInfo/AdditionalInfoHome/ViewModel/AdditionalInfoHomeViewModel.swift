@@ -20,7 +20,7 @@ class AdditionalInfoHomeViewModel {
         didSet { verifyForm() }
     }
     
-    var chosenGender: UISegmentedControl? {
+    var chosenGenderLabel: String = "" {
         didSet { verifyForm() }
     }
     
@@ -36,7 +36,7 @@ class AdditionalInfoHomeViewModel {
     
     private func verifyForm() {
         let hasBackGroundColour = selectedColourView?.backgroundColor != nil
-        let hasValidGender = chosenGender?.selectedSegmentIndex != UISegmentedControl.noSegment
+        let hasValidGender = !chosenGenderLabel.trimmingCharacters(in: .whitespaces).isEmpty
         let hasAddress = !residentialAddressTextField.trimmingCharacters(in: .whitespaces).isEmpty
         
         let isValid = hasBackGroundColour && hasValidGender && hasAddress
