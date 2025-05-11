@@ -14,7 +14,7 @@ protocol AdditionalInfoHomeViewModelDelegate: AnyObject {
 class AdditionalInfoHomeViewModel {
     
     weak var delegate: AdditionalInfoHomeViewModelDelegate?
-    private (set) var selectedGender: Gender = .male
+    private var selectedGender: Gender = .male
     
     var selectedColourView: UIView? {
         didSet { verifyForm() }
