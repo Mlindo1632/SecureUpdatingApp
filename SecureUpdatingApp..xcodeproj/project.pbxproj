@@ -239,18 +239,18 @@
 		C01B110D2D9419210037715E /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				C01B11182D94473C0037715E /* PlistReader */,
+				C01B11182D94473C0037715E /* ReusableItems */,
 				C01B11232D9465E40037715E /* ReusableUikit */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
 		};
-		C01B11182D94473C0037715E /* PlistReader */ = {
+		C01B11182D94473C0037715E /* ReusableItems */ = {
 			isa = PBXGroup;
 			children = (
 				C01B11192D9447F80037715E /* SecurePlistReader.swift */,
 			);
-			path = PlistReader;
+			path = ReusableItems;
 			sourceTree = "<group>";
 		};
 		C01B11232D9465E40037715E /* ReusableUikit */ = {

@@ -11,6 +11,8 @@ protocol LoginViewModelDelegate: AnyObject {
     func didUpdateEmailValidation(isValid: Bool, errorMessage: String?)
     func didUpdatePasswordValidation(isValid: Bool, errorMessage: String?)
     func didUpdateFormValidation(isValid: Bool)
+    func didGetToken(token: LoginTokenModel)
+    func didFailToGetToken(error: Error)
 }
 
 class LoginViewModel {
@@ -18,6 +20,7 @@ class LoginViewModel {
     private let loginServiceCallProtocol: LoginServiceCallProtocol
     
     weak var delegate: LoginViewModelDelegate?
+    private var token: String?
     
     var email: String = "" {
         didSet { validateEmail()}
@@ -59,7 +62,19 @@ class LoginViewModel {
         delegate?.didUpdateFormValidation(isValid: isEmailValid && isPasswordValid)
     }
     
-    func loginUser(email: String, password: String) {
-        loginServiceCallProtocol.loginUser(email: email, password: password)
+    func getToken() {
+        loginServiceCallProtocol.loginUser(email: email, password: password) { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let token):
+                    self.token = token.token
+                    self.delegate?.didGetToken(token: token)
+                case .failure(let error):
+                    self.delegate?.didFailToGetToken(error: error)
+                }
+            }
+        }
     }
 }

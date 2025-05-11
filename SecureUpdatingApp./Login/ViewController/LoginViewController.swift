@@ -10,7 +10,6 @@ import UIKit
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginView: LoginView!
-    
     private var loginViewModel: LoginViewModel?
     
     init(loginViewModel: LoginViewModel) {
@@ -25,7 +24,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel?.delegate = self
-        NetworkManager.shared.delegate = self
         setUpTextFieldsAndButton()
     }
     
@@ -48,11 +46,15 @@ class LoginViewController: UIViewController {
         loginView.activityIndicator.startAnimating()
         
         guard let email = loginView.emailTextField.text?.lowercased(), let password = loginView.passwordTextField.text else { return }
-        loginViewModel?.loginUser(email: email, password: password)
+        
+        loginViewModel?.email = email
+        loginViewModel?.password = password
+        loginViewModel?.getToken()
     }
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    
     func didUpdateEmailValidation(isValid: Bool, errorMessage: String?) {
         if let errorMessage = errorMessage {
             loginView.emailErrorLabel.text = errorMessage
@@ -74,16 +76,14 @@ extension LoginViewController: LoginViewModelDelegate {
     func didUpdateFormValidation(isValid: Bool) {
         loginView.loginButton.isEnabled = isValid
     }
-}
-
-extension LoginViewController: NetworkManagerDelegate {
-    func didDecodeData<T>(_ data: T) where T : Decodable {
+    
+    func didGetToken(token: LoginTokenModel) {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
+        print("Successfully Logged in. Token is \(token)")
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
                                                         textFieldTwo: loginView.passwordTextField,
                                                         button: loginView.loginButton)
-        print("Successfully Logged in. Token is \(data)")
-    
+        
         DispatchQueue.main.async {
             let employeeHomeViewModel = EmployeeHomeViewModel()
             let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
@@ -91,13 +91,14 @@ extension LoginViewController: NetworkManagerDelegate {
         }
     }
     
-    func didFail(_ error: APIError) {
+    func didFailToGetToken(error: Error) {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
         print("Password or Email may be incorrect. Please try again")
-        SecureAlertController.showAlert(on: self, message: "password or email may be incorrect. Please try again", title: "OK")
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
                                                         textFieldTwo: loginView.passwordTextField,
                                                         button: loginView.loginButton)
+        SecureAlertController.showAlert(on: self, message: "password or email may be incorrect. Please try again", title: "OK")
     }
 }
+
 

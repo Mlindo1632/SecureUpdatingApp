@@ -19,7 +19,7 @@ protocol EmployeeSelectionDelegate: AnyObject {
 class EmployeeListViewModel {
     
     private let employeeListServiceCall: EmployeeListServiceCallProtocol!
-    private (set) var employees: [EmployeeDetails] = []
+    private var employees: [EmployeeDetails] = []
     weak var delegate: EmployeeListViewModelDelegate?
     
     init(employeeListServiceCall: EmployeeListServiceCallProtocol!) {
