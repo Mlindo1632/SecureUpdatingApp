@@ -13,6 +13,7 @@ class EmployeeHomeViewController: UIViewController {
     
     private var nextBarButton: UIBarButtonItem!
     private var viewModel: EmployeeHomeViewModel?
+    var selectedEmployee: EmployeeDetails?
     
        init(viewModel: EmployeeHomeViewModel) {
            self.viewModel = viewModel
@@ -69,13 +70,6 @@ class EmployeeHomeViewController: UIViewController {
         SecureModalPresenter.present(employeeListViewController, from: self)
     }
     
-    @objc func goToAdditionalInfo() {
-        let additionalInfoViewModel = AdditionalInfoHomeViewModel()
-        let additionalInfoViewController = AdditionalInfoViewController(additionalInfoViewModel: additionalInfoViewModel)
-        
-        SecureNavigation.navigate(from: self, to: additionalInfoViewController)
-    }
-    
     @objc private func textFieldChanged(_ sender: UITextField) {
         viewModel?.placeOfBirthTextField = employeeHomeView.placeOfBirthTextfield.text ?? ""
         viewModel?.dateOfBirthTextField = employeeHomeView.dateOfBirthTextfield.text ?? ""
@@ -111,4 +105,28 @@ extension EmployeeHomeViewController: EmployeeSelectionDelegate {
         
         employeeHomeView.employeeDetailsView.isHidden = false
     }
-}
+        
+        @objc func goToAdditionalInfo() {
+            let additionalInfoViewModel = AdditionalInfoHomeViewModel()
+            let additionalInfoViewController = AdditionalInfoViewController(additionalInfoViewModel: additionalInfoViewModel)
+            
+            SecureNavigation.navigate(from: self, to: additionalInfoViewController)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                
+                guard let employee = self.selectedEmployee else { return }
+                        
+                let info: [String: Any] = [
+                    "id": employee.id,
+                    "email": employee.email,
+                    "firstName": employee.firstName,
+                    "lastName": employee.lastName,
+                    "avatar": employee.avatar,
+                    "d.O.B": self.viewModel?.dateOfBirthTextField ?? "",
+                    "placeOfBirth": self.viewModel?.placeOfBirthTextField ?? ""
+                ]
+                
+                NotificationCenter.default.post(name: .didCollectFormData, object: nil, userInfo: info)
+            }
+        }
+    }

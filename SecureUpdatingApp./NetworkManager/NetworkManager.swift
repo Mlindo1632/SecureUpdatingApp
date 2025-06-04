@@ -26,11 +26,13 @@ class NetworkManager: NetworkManagerProtocol {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+        
         if let headers = headers {
             for (key, value) in headers {
                 request.addValue(value, forHTTPHeaderField: key)
             }
         }
+        
         if let parameters = parameters {
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         }
