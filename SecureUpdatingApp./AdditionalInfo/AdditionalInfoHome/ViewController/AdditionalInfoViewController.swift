@@ -13,6 +13,7 @@ class AdditionalInfoViewController: UIViewController {
     private var nextBarButton: UIBarButtonItem!
     @IBOutlet weak var additionalInfoView: AdditionalInfoView!
     private var additionalInfoViewModel: AdditionalInfoHomeViewModel?
+    var selectedColour: ColourDetails?
     
     init(additionalInfoViewModel: AdditionalInfoHomeViewModel) {
         self.additionalInfoViewModel = additionalInfoViewModel
@@ -57,10 +58,6 @@ class AdditionalInfoViewController: UIViewController {
         additionalInfoView.residentialAddressTextField.addTarget(self, action: #selector(textFieldChanged), for: .allEvents)
     }
     
-    @objc func goToReview() {
-        
-    }
-    
     @objc func selectColourButtonPressed() {
         let colourListViewController = ColourListViewController(nibName: "ColourListViewController", bundle: nil)
         let serviceCall = ColourListServiceCall()
@@ -86,12 +83,30 @@ class AdditionalInfoViewController: UIViewController {
 extension AdditionalInfoViewController: ColourSelectionDelegate {
     
     func didSelectColour(_ colour: ColourDetails) {
+        self.selectedColour = colour
+        
         additionalInfoView.preferredColour.text = colour.name
         additionalInfoView.preferredColourView.backgroundColor = UIColor(hexString: colour.color)
         
         additionalInfoView.colourDetailsView.isHidden = false
         
         additionalInfoViewModel?.selectedColourView = additionalInfoView.preferredColourView
+        
+    }
+    
+    @objc func goToReview() {
+        guard let colour = self.selectedColour else { return }
+        
+        let formData: [String: Any] = [
+            "colour": colour.color,
+            "preferredColour": colour.name,
+            "residentialAddress": self.additionalInfoView.residentialAddressTextField.text ?? "",
+            "gender": self.additionalInfoView.genderLabel.text ?? ""
+        ]
+        
+        let reviewController = ReviewViewController(nibName: "ReviewViewController", bundle: nil)
+        reviewController.formData = formData
+        SecureNavigation.navigate(from: self, to: reviewController)
     }
 }
 

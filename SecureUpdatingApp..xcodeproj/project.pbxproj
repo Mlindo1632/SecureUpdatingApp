@@ -31,6 +31,7 @@
 		C049993D2DBA0EDE003820F6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C049993C2DBA0EDE003820F6 /* Kingfisher */; };
 		C04DA0372DC1057B0030E68F /* EmployeeHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */; };
 		C04E15E02DC65A4F00A551FB /* SecureDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E15DF2DC65A4F00A551FB /* SecureDatePicker.swift */; };
+		C05497B12DD14E7800B19C45 /* SecureNSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05497B02DD14E7800B19C45 /* SecureNSNotificationCenter.swift */; };
 		C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */; };
 		C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */; };
 		C05E23C02D94AD7D00C363FD /* LoginServiceCallMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */; };
@@ -40,6 +41,10 @@
 		C07066732DA6F55600738C0B /* EmployeeListServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07066722DA6F55500738C0B /* EmployeeListServiceCall.swift */; };
 		C07834AB2D956D50001449F0 /* LoginViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07834AA2D956D50001449F0 /* LoginViewModelDelegateMock.swift */; };
 		C07834AD2D956DFE001449F0 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07834AC2D956DFE001449F0 /* LoginViewModelTests.swift */; };
+		C07894662DD2AFAC00EE9456 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07894642DD2AFAC00EE9456 /* ReviewViewController.swift */; };
+		C07894672DD2AFAC00EE9456 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07894652DD2AFAC00EE9456 /* ReviewViewController.xib */; };
+		C08066E92DD293380026B141 /* ReviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08066E82DD293380026B141 /* ReviewView.xib */; };
+		C08066EB2DD2944C0026B141 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08066EA2DD2944C0026B141 /* ReviewView.swift */; };
 		C092FC382DC91CE900F21558 /* ColourListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092FC372DC91CE900F21558 /* ColourListViewModel.swift */; };
 		C092FC3A2DC92AAF00F21558 /* ColourListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C092FC392DC92AAF00F21558 /* ColourListView.swift */; };
 		C092FC3C2DC92AE700F21558 /* ColourListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C092FC3B2DC92AE700F21558 /* ColourListView.xib */; };
@@ -103,6 +108,7 @@
 		C040DF482DA5C14700A35BA0 /* EmployeeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeListViewController.xib; sourceTree = "<group>"; };
 		C04DA0362DC1057B0030E68F /* EmployeeHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewModel.swift; sourceTree = "<group>"; };
 		C04E15DF2DC65A4F00A551FB /* SecureDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDatePicker.swift; sourceTree = "<group>"; };
+		C05497B02DD14E7800B19C45 /* SecureNSNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureNSNotificationCenter.swift; sourceTree = "<group>"; };
 		C05E23B92D94A21C00C363FD /* EmployeeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeViewController.swift; sourceTree = "<group>"; };
 		C05E23BA2D94A21C00C363FD /* EmployeeHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeHomeViewController.xib; sourceTree = "<group>"; };
 		C05E23BF2D94AD7D00C363FD /* LoginServiceCallMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceCallMock.swift; sourceTree = "<group>"; };
@@ -112,6 +118,10 @@
 		C07066722DA6F55500738C0B /* EmployeeListServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListServiceCall.swift; sourceTree = "<group>"; };
 		C07834AA2D956D50001449F0 /* LoginViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		C07834AC2D956DFE001449F0 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		C07894642DD2AFAC00EE9456 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		C07894652DD2AFAC00EE9456 /* ReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewViewController.xib; sourceTree = "<group>"; };
+		C08066E82DD293380026B141 /* ReviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewView.xib; sourceTree = "<group>"; };
+		C08066EA2DD2944C0026B141 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		C092FC372DC91CE900F21558 /* ColourListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListViewModel.swift; sourceTree = "<group>"; };
 		C092FC392DC92AAF00F21558 /* ColourListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourListView.swift; sourceTree = "<group>"; };
 		C092FC3B2DC92AE700F21558 /* ColourListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColourListView.xib; sourceTree = "<group>"; };
@@ -249,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				C01B11192D9447F80037715E /* SecurePlistReader.swift */,
+				C05497B02DD14E7800B19C45 /* SecureNSNotificationCenter.swift */,
 			);
 			path = ReusableItems;
 			sourceTree = "<group>";
@@ -397,6 +408,57 @@
 			path = ColourListCell;
 			sourceTree = "<group>";
 		};
+		C0A1DD8D2DD21A66003563BF /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1DD922DD21C07003563BF /* Model */,
+				C0A1DD912DD21BED003563BF /* ServiceCall */,
+				C0A1DD902DD21BD6003563BF /* ViewModel */,
+				C0A1DD8F2DD21BB6003563BF /* View */,
+				C0A1DD8E2DD21BB1003563BF /* ViewController */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		C0A1DD8E2DD21BB1003563BF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C07894642DD2AFAC00EE9456 /* ReviewViewController.swift */,
+				C07894652DD2AFAC00EE9456 /* ReviewViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0A1DD8F2DD21BB6003563BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C08066EA2DD2944C0026B141 /* ReviewView.swift */,
+				C08066E82DD293380026B141 /* ReviewView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0A1DD902DD21BD6003563BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C0A1DD912DD21BED003563BF /* ServiceCall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceCall;
+			sourceTree = "<group>";
+		};
+		C0A1DD922DD21C07003563BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C0B830B62D91CC6F00280350 = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +488,7 @@
 				C01B10FE2D9338870037715E /* Login */,
 				C05E23B72D949FA400C363FD /* Employee */,
 				C0C3594B2DC7B0FA00405038 /* AdditionalInfo */,
+				C0A1DD8D2DD21A66003563BF /* Review */,
 				C0B830CB2D91CC7400280350 /* Assets.xcassets */,
 				C0B830CD2D91CC7400280350 /* LaunchScreen.storyboard */,
 				C0B830D02D91CC7400280350 /* Info.plist */,
@@ -653,6 +716,7 @@
 				C0DC48702DA3F00F002702A4 /* EmployeeHomeView.xib in Resources */,
 				C0CE34572DAC4A3B00C689D8 /* EmployeeListView.xib in Resources */,
 				C0C359512DC7C24800405038 /* AdditionalInfoView.xib in Resources */,
+				C07894672DD2AFAC00EE9456 /* ReviewViewController.xib in Resources */,
 				C01B11222D945C9B0037715E /* LoginViewController.xib in Resources */,
 				C0CE345C2DAC5D2F00C689D8 /* EmployeeListTableViewCell.xib in Resources */,
 				C0A041A82DC956E9001EB66C /* ColourListTableViewCell.xib in Resources */,
@@ -662,6 +726,7 @@
 				C0B830CF2D91CC7400280350 /* LaunchScreen.storyboard in Resources */,
 				C01B110F2D94212C0037715E /* ReqResAPIs.plist in Resources */,
 				C05E23BC2D94A21C00C363FD /* EmployeeHomeViewController.xib in Resources */,
+				C08066E92DD293380026B141 /* ReviewView.xib in Resources */,
 				C01B11202D9459AF0037715E /* LoginView.xib in Resources */,
 				C0A041A32DC93280001EB66C /* ColourListViewController.xib in Resources */,
 				C0B830CC2D91CC7400280350 /* Assets.xcassets in Resources */,
@@ -682,10 +747,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08066EB2DD2944C0026B141 /* ReviewView.swift in Sources */,
 				C0A041A22DC93280001EB66C /* ColourListViewController.swift in Sources */,
 				C01B11172D9443C90037715E /* LoginServiceCall.swift in Sources */,
 				C0CE34552DAC49A300C689D8 /* EmployeeListView.swift in Sources */,
 				C0B830C72D91CC6F00280350 /* LoginViewController.swift in Sources */,
+				C05497B12DD14E7800B19C45 /* SecureNSNotificationCenter.swift in Sources */,
 				C040DF492DA5C14700A35BA0 /* EmployeeListViewController.swift in Sources */,
 				C01B53442DBA660B00B5B972 /* SecureImageHelper.swift in Sources */,
 				C0B830C32D91CC6F00280350 /* AppDelegate.swift in Sources */,
@@ -700,6 +767,7 @@
 				C01B11132D9437650037715E /* NetworkManager.swift in Sources */,
 				C0C3594F2DC7C10400405038 /* AdditionalInfoView.swift in Sources */,
 				C05E23BB2D94A21C00C363FD /* EmployeeHomeViewController.swift in Sources */,
+				C07894662DD2AFAC00EE9456 /* ReviewViewController.swift in Sources */,
 				C01B11272D94694F0037715E /* SecureAlertController.swift in Sources */,
 				C0CE34532DA7041D00C689D8 /* EmployeeListViewModel.swift in Sources */,
 				C092FC382DC91CE900F21558 /* ColourListViewModel.swift in Sources */,

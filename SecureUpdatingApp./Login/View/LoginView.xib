@@ -82,7 +82,9 @@
                                 <constraint firstAttribute="height" constant="40" id="2w6-LC-2HI"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="LOGIN" cornerStyle="capsule"/>
+                            <buttonConfiguration key="configuration" style="filled" title="LOGIN" cornerStyle="capsule">
+                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                            </buttonConfiguration>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93031499803680728" green="0.93031499803680728" blue="0.93031499803680728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
