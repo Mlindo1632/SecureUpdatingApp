@@ -27,11 +27,6 @@ class LoginViewController: UIViewController {
         setUpTextFieldsAndButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     func setUpTextFieldsAndButton() {
         loginView.emailTextField.addTarget(self, action: #selector(emailDidChange), for: .allEditingEvents)
         loginView.passwordTextField.addTarget(self, action: #selector(passwordDidChange), for: .allEditingEvents)
@@ -84,15 +79,8 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func didGetToken(token: LoginTokenModel) {
         SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
-        print("Successfully Logged in. Token is \(token)")
+        print("Successfully Logged in. Token is \(token.token)")
         
-        let info: [String: Any] = [
-            "Token" : token
-        ]
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            NotificationCenter.default.post(name: .didCollectFormData, object: nil, userInfo: info)
-        }
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
                                                         textFieldTwo: loginView.passwordTextField,
                                                         button: loginView.loginButton)
@@ -113,5 +101,3 @@ extension LoginViewController: LoginViewModelDelegate {
         SecureAlertController.showAlert(on: self, message: "password or email may be incorrect. Please try again", title: "OK")
     }
 }
-
-

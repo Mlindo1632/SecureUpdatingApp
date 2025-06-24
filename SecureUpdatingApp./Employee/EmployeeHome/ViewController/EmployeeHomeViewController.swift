@@ -15,14 +15,14 @@ class EmployeeHomeViewController: UIViewController {
     private var viewModel: EmployeeHomeViewModel?
     var selectedEmployee: EmployeeDetails?
     
-       init(viewModel: EmployeeHomeViewModel) {
-           self.viewModel = viewModel
-           super.init(nibName: String(describing: EmployeeHomeViewController.self), bundle: nil)
-       }
-
-       required init?(coder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
+    init(viewModel: EmployeeHomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: EmployeeHomeViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,8 @@ class EmployeeHomeViewController: UIViewController {
         SecureDatePicker.attachDatePicker(to: employeeHomeView.dateOfBirthTextfield)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissDatePicker))
-            tapGesture.cancelsTouchesInView = false
-            view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +54,7 @@ class EmployeeHomeViewController: UIViewController {
         employeeHomeView.selectEmployeeButton.addTarget(self, action: #selector(selectEmployeeButtonPressed), for: .touchUpInside)
     }
     
-     private func setupNextBarButton() {
+    private func setupNextBarButton() {
         nextBarButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(goToAdditionalInfo))
         nextBarButton.isEnabled = false
         navigationItem.rightBarButtonItem = nextBarButton
@@ -94,6 +94,8 @@ extension EmployeeHomeViewController: UITextFieldDelegate {
 
 extension EmployeeHomeViewController: EmployeeSelectionDelegate {
     func didSelectEmployee(_ employee: EmployeeDetails) {
+        self.selectedEmployee = employee
+        
         title = " Employee ID: \(employee.id)"
         employeeHomeView.selectedEmployeeName.text = "\(employee.firstName) \(employee.lastName)"
         employeeHomeView.selectedEmployeeEmail.text = employee.email
@@ -105,28 +107,20 @@ extension EmployeeHomeViewController: EmployeeSelectionDelegate {
         
         employeeHomeView.employeeDetailsView.isHidden = false
     }
+    
+    @objc func goToAdditionalInfo() {
         
-        @objc func goToAdditionalInfo() {
-            let additionalInfoViewModel = AdditionalInfoHomeViewModel()
-            let additionalInfoViewController = AdditionalInfoViewController(additionalInfoViewModel: additionalInfoViewModel)
-            
-            SecureNavigation.navigate(from: self, to: additionalInfoViewController)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                
-                guard let employee = self.selectedEmployee else { return }
-                        
-                let info: [String: Any] = [
-                    "id": employee.id,
-                    "email": employee.email,
-                    "firstName": employee.firstName,
-                    "lastName": employee.lastName,
-                    "avatar": employee.avatar,
-                    "d.O.B": self.viewModel?.dateOfBirthTextField ?? "",
-                    "placeOfBirth": self.viewModel?.placeOfBirthTextField ?? ""
-                ]
-                
-                NotificationCenter.default.post(name: .didCollectFormData, object: nil, userInfo: info)
-            }
-        }
+        guard let employee = self.selectedEmployee else { return }
+        
+        let additionalInfoViewModel = AdditionalInfoHomeViewModel()
+        let additionalInfoViewController = AdditionalInfoViewController(additionalInfoViewModel: additionalInfoViewModel)
+        
+        additionalInfoViewController.employee = employee
+        additionalInfoViewController.birthPlaceDetails = BirthPlaceDetails(
+            placeOfBirth: employeeHomeView.placeOfBirthTextfield.text ?? "",
+            dateOfBirth: employeeHomeView.dateOfBirthTextfield.text ?? "")
+        
+        
+        SecureNavigation.navigate(from: self, to: additionalInfoViewController)
     }
+}
