@@ -14,6 +14,10 @@ class AdditionalInfoViewController: UIViewController {
     @IBOutlet weak var additionalInfoView: AdditionalInfoView!
     private var additionalInfoViewModel: AdditionalInfoHomeViewModel?
     var selectedColour: ColourDetails?
+    var employee: EmployeeDetails?
+    var birthPlaceDetails: BirthPlaceDetails?
+    var additionalInfoDetails: AdditionalInfoDetails?
+    
     
     init(additionalInfoViewModel: AdditionalInfoHomeViewModel) {
         self.additionalInfoViewModel = additionalInfoViewModel
@@ -97,15 +101,15 @@ extension AdditionalInfoViewController: ColourSelectionDelegate {
     @objc func goToReview() {
         guard let colour = self.selectedColour else { return }
         
-        let formData: [String: Any] = [
-            "colour": colour.color,
-            "preferredColour": colour.name,
-            "residentialAddress": self.additionalInfoView.residentialAddressTextField.text ?? "",
-            "gender": self.additionalInfoView.genderLabel.text ?? ""
-        ]
-        
         let reviewController = ReviewViewController(nibName: "ReviewViewController", bundle: nil)
-        reviewController.formData = formData
+        reviewController.employee = employee
+        reviewController.birthPlaceDetails = birthPlaceDetails
+        reviewController.selectedColour = colour
+        
+        reviewController.additionalInfoDetails = AdditionalInfoDetails(
+            gender: additionalInfoView.genderLabel.text ?? "",
+            residentialAddress: additionalInfoView.residentialAddressTextField.text ?? "")
+        
         SecureNavigation.navigate(from: self, to: reviewController)
     }
 }
