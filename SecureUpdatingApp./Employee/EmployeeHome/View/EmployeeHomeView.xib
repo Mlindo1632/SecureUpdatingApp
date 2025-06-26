@@ -56,6 +56,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-CW-GpD" userLabel="Avatar">
                             <rect key="frame" x="0.0" y="0.0" width="109" height="133"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.94638431190000005" green="0.94638431190000005" blue="0.94638431190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTz-MT-oYo" userLabel="FullName">
                             <rect key="frame" x="117" y="8" width="211" height="28"/>
