@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var blurView: UIVisualEffectView?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -23,6 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()
+            
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = window.bounds
+            blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            blurView.alpha = 0
+            window.addSubview(blurView)
+            self.blurView = blurView
         }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -37,11 +46,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        UIView.animate(withDuration: 0.3) {
+            self.blurView?.alpha = 0.0
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        UIView.animate(withDuration: 0.3) {
+            self.blurView?.alpha = 1.0
+        }
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
