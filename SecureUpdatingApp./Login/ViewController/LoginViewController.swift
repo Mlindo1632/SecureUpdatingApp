@@ -104,6 +104,6 @@ extension LoginViewController: LoginViewModelDelegate {
         SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
                                                         textFieldTwo: loginView.passwordTextField,
                                                         button: loginView.loginButton)
-        SecureAlertController.showAlert(on: self, message: "password or email may be incorrect. Please try again", title: "OK")
+        SecureAlertController.showAlert(on: self, message: "Password or Email may be incorrect. Please try again.", title: "OK")
     }
 }
