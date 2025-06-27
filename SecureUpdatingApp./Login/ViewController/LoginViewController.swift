@@ -27,6 +27,12 @@ class LoginViewController: UIViewController {
         setUpTextFieldsAndButton()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        loginView.loginDetailsView.layer.cornerRadius = 20
+        loginView.loginDetailsView.clipsToBounds = true
+    }
+    
     func setUpTextFieldsAndButton() {
         loginView.emailTextField.addTarget(self, action: #selector(emailDidChange), for: .allEditingEvents)
         loginView.passwordTextField.addTarget(self, action: #selector(passwordDidChange), for: .allEditingEvents)
