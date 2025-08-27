@@ -12,16 +12,15 @@ class NetworkManager: NetworkManagerProtocol {
     
     private init() {}
     
-    func request<T: Codable>(
+    func request<T: Decodable>(
         endpoint: String,
         method: HTTPMethod,
-        parameters: [String : Any]?,
-        headers: [String : String]?,
-        completion: @escaping (Result<T, APIError>) -> Void
-    ) {
+        parameters: [String: Any]? = nil,
+        headers: [String: String]? = nil
+    ) async throws -> T {
+        
         guard let url = URL(string: endpoint) else {
-            completion(.failure(.invalidURL))
-            return
+            throw APIError.invalidURL
         }
         
         var request = URLRequest(url: url)
@@ -34,28 +33,28 @@ class NetworkManager: NetworkManagerProtocol {
         }
         
         if let parameters = parameters {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
         }
         
-        request.setValue("application/json", forHTTPHeaderField: "content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let _ = error {
-                completion(.failure(.requestFailed))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.unknownError))
-                return
-            }
-            
-            do {
-                let decodedData = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(decodedData))
-            } catch {
-                completion(.failure(.decodingFailed))
-            }
-        }.resume()
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.requestFailed(description: "Request failed")
+        }
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw APIError.invalidStatusCode(statusCode: httpResponse.statusCode)
+        }
+        
+        do {
+            let decodedData = try JSONDecoder().decode(T.self, from: data)
+            return decodedData
+        } catch {
+            throw APIError.jsonParsingFailure
+        }
     }
 }
+

@@ -11,16 +11,17 @@ protocol LoginViewModelDelegate: AnyObject {
     func didUpdateEmailValidation(isValid: Bool, errorMessage: String?)
     func didUpdatePasswordValidation(isValid: Bool, errorMessage: String?)
     func didUpdateFormValidation(isValid: Bool)
-    func didGetToken(token: LoginTokenModel)
-    func didFailToGetToken(error: Error)
 }
 
 class LoginViewModel {
     
-    private let loginServiceCallProtocol: LoginServiceCallProtocol
+    private let loginServiceCall: LoginServiceCallProtocol
     
     weak var delegate: LoginViewModelDelegate?
     private var token: String?
+    
+    var onSuccess: ((LoginTokenModel) -> Void)?
+    var onFailure: ((Error) -> Void)?
     
     var email: String = "" {
         didSet { validateEmail()}
@@ -29,8 +30,8 @@ class LoginViewModel {
         didSet { validatePassword()}
     }
     
-    init(loginServiceCallProtocol: LoginServiceCallProtocol) {
-        self.loginServiceCallProtocol = loginServiceCallProtocol
+    init(loginServiceCall: LoginServiceCallProtocol) {
+        self.loginServiceCall = loginServiceCall
     }
     
     private func validateEmail() {
@@ -62,18 +63,21 @@ class LoginViewModel {
         delegate?.didUpdateFormValidation(isValid: isEmailValid && isPasswordValid)
     }
     
+    @MainActor
     func getToken() {
-        loginServiceCallProtocol.loginUser(email: email, password: password) { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let token):
-                    self.token = token.token
-                    self.delegate?.didGetToken(token: token)
-                case .failure(let error):
-                    self.delegate?.didFailToGetToken(error: error)
+        Task {
+            do {
+                let response = try await loginServiceCall.loginUser(email: email, password: password)
+                
+                if let token = response.token {
+                    onSuccess?(response)
+                } else if let errorMessage = response.error {
+                    let apiError = NSError(domain: "", code: 0,
+                                           userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                    onFailure?(apiError)
                 }
+            } catch {
+                onFailure?(error)
             }
         }
     }

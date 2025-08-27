@@ -8,5 +8,6 @@
 import Foundation
 
 struct LoginTokenModel: Codable {
-    var token: String
+    let token: String?
+    let error: String?
 }

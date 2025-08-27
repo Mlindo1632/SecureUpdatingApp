@@ -82,6 +82,9 @@ class AdditionalInfoViewController: UIViewController {
     @objc func textFieldChanged() {
         additionalInfoViewModel?.residentialAddressTextField = additionalInfoView.residentialAddressTextField.text ?? ""
     }
+    deinit {
+        print("\(self) has been removed from Memory")
+    }
 }
 
 extension AdditionalInfoViewController: ColourSelectionDelegate {

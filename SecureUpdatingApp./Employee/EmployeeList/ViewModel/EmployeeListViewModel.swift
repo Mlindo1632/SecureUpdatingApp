@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol EmployeeListViewModelDelegate: AnyObject {
-    func didFetchEmployees()
-    func didFailWithError(_ error: Error)
-}
-
 protocol EmployeeSelectionDelegate: AnyObject {
     func didSelectEmployee(_ employee: EmployeeDetails)
 }
@@ -19,34 +14,32 @@ protocol EmployeeSelectionDelegate: AnyObject {
 class EmployeeListViewModel {
     
     private let employeeListServiceCall: EmployeeListServiceCallProtocol!
-    private var employees: [EmployeeDetails] = []
-    weak var delegate: EmployeeListViewModelDelegate?
+    private(set) var employees: [EmployeeDetails] = []
+    private(set) var error: Error?
+
+    var onUpdate: (() -> Void)?
     
-    init(employeeListServiceCall: EmployeeListServiceCallProtocol!) {
+    init(employeeListServiceCall: EmployeeListServiceCallProtocol) {
         self.employeeListServiceCall = employeeListServiceCall
     }
     
-    func getEmployees() {
-        employeeListServiceCall.getEmployeeList { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let employees):
-                    self.employees = employees
-                    self.delegate?.didFetchEmployees()
-                case .failure(let error):
-                    self.delegate?.didFailWithError(error)
-                }
-            }
+    @MainActor
+    func getEmployees() async {
+        do {
+            let employees = try await employeeListServiceCall.getEmployeeList()
+            self.employees = employees
+            self.error = nil
+        } catch {
+            self.error = error
         }
+        onUpdate?()
     }
     
     func numberOfEmployees() -> Int {
-            return employees.count
-        }
+        return employees.count
+    }
 
     func employee(at index: Int) -> EmployeeDetails {
-            return employees[index]
-        }
+        return employees[index]
     }
+}

@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ColourListViewModelDelegate: AnyObject {
-    func didFetchColours()
-    func didFailWithError(_ error: Error)
-}
-
 protocol ColourSelectionDelegate: AnyObject {
     func didSelectColour(_ colour: ColourDetails)
 }
@@ -20,26 +15,25 @@ class ColourListViewModel {
     
     private let colourListServiceCall: ColourListServiceCallProtocol!
     private (set) var colours: [ColourDetails] = []
-    weak var delegate: ColourListViewModelDelegate?
+    private (set) var error: Error?
+    
+    var onUpdate: (() -> Void)?
     
     init(colourListServiceCall: ColourListServiceCallProtocol!) {
         self.colourListServiceCall = colourListServiceCall
     }
     
-    func getColours() {
-        colourListServiceCall.getColourList { [weak self] result in
-            guard let self = self else {return}
+    @MainActor
+    func getColours() async {
+        do {
+            let colours = try await colourListServiceCall.getColourList()
+            self.colours = colours
+            self.error = nil
             
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let colours):
-                    self.colours = colours
-                    self.delegate?.didFetchColours()
-                case .failure(let error):
-                    self.delegate?.didFailWithError(error)
-                }
-            }
+        } catch {
+            self.error = error
         }
+        onUpdate?()
     }
     
     func numberOfColours() -> Int {

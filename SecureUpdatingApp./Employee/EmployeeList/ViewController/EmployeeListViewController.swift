@@ -17,32 +17,41 @@ class EmployeeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        employeeListViewModel?.delegate = self
         setupTableView()
-        employeeListViewModel?.getEmployees()
+        setupViewModel()
+        fetchEmployees()
+    }
+    
+    private func setupTableView() {
+        employeeListView.employeeListTableView.delegate = self
+        employeeListView.employeeListTableView.dataSource = self
         employeeListView.employeeListTableView.register(UINib(nibName: "EmployeeListTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeListTableViewCell")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        employeeListView.employeeListNavigationBar.isTranslucent = false
+    private func setupViewModel() {
+        let service = EmployeeListServiceCall()
+        employeeListViewModel = EmployeeListViewModel(employeeListServiceCall: service)
+        
+        employeeListViewModel?.onUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                self?.employeeListView.employeeListTableView.reloadData()
+                
+                if let error = self?.employeeListViewModel?.error {
+                    SecureAlertController.showAlert(on: self!, message: error.localizedDescription, title: "Warning")
+                    self?.dismiss(animated: true)
+                }
+            }
+        }
+    }
+ 
+    private func fetchEmployees() {
+        Task {
+           await employeeListViewModel?.getEmployees()
+        }
     }
     
-    func setupTableView() {
-        employeeListView.employeeListTableView.delegate = self
-        employeeListView.employeeListTableView.dataSource = self
-    }
-}
-
-extension EmployeeListViewController: EmployeeListViewModelDelegate {
-    func didFetchEmployees() {
-        print("Success. Displaying employees")
-        employeeListView.employeeListTableView.reloadData()
-    }
-    
-    func didFailWithError(_ error: Error) {
-        print("Failed to display employees")
-        dismiss(animated: true)
+    deinit {
+        print("\(self) has been removed from Memory")
     }
 }
 
