@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EmployeeListServiceCallProtocol {
-    func getEmployeeList(completion: @escaping (Result<[EmployeeDetails], APIError>) -> Void)
+    func getEmployeeList() async throws -> [EmployeeDetails]
 }
 
 struct EmployeeListServiceCall: EmployeeListServiceCallProtocol {
@@ -19,25 +19,21 @@ struct EmployeeListServiceCall: EmployeeListServiceCallProtocol {
         self.networkManager = networkManager
     }
 
-    func getEmployeeList(completion: @escaping (Result<[EmployeeDetails], APIError>) -> Void) {
+    func getEmployeeList() async throws -> [EmployeeDetails] {
         
-        let endpoint = SecurePlistReader.readValue(key: "ReqresUsersDetails")!
+        guard let endpoint = SecurePlistReader.readValue(key: "ReqresUsersDetails") else {
+            throw URLError(.badURL)
+        }
         
         let headers = ["x-api-key": "reqres-free-v1"]
-
-        networkManager.request(endpoint: endpoint,
-                               method: .get,
-                               parameters: nil,
-                               headers: headers
-        ) {(result: Result<EmployeeListModel, APIError>) in
-            switch result {
-            case .success(let response):
-                print("Decoding employees success")
-                completion(.success(response.data))
-            case .failure(let error):
-                print("Failed to decode employees. Error: \(error)")
-                completion(.failure(error))
-            }
-        }
+        
+        let response: EmployeeListModel = try await networkManager.request(
+            endpoint: endpoint,
+            method: .get,
+            parameters: nil,
+            headers: headers
+        )
+        
+        return response.data
     }
 }

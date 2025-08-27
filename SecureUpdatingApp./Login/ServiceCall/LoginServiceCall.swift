@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginServiceCallProtocol {
-    func loginUser(email: String, password: String, completion: @escaping (Result<LoginTokenModel, Error>) -> Void)
+    func loginUser(email: String, password: String) async throws -> LoginTokenModel
 }
 
 struct LoginServiceCall: LoginServiceCallProtocol {
@@ -19,26 +19,18 @@ struct LoginServiceCall: LoginServiceCallProtocol {
            self.networkManager = networkManager
        }
     
-    func loginUser(email: String, password: String, completion: @escaping (Result<LoginTokenModel, Error>) -> Void) {
+    func loginUser(email: String, password: String) async throws -> LoginTokenModel{
         let endpoint = SecurePlistReader.readValue(key: "ReqresLoginDetails")!
         
         let parameters: [String: Any] = ["email": email, "password": password]
         
-        let headers = [ "x-api-key": "reqres-free-v1"]
+        let headers = ["x-api-key": "reqres-free-v1"]
         
-                networkManager.request(endpoint: endpoint,
-                                      method: .post,
-                                      parameters: parameters,
-                                      headers: headers
-        ) {(result: Result<LoginTokenModel, APIError>) in
-            switch result {
-            case .success(let token):
-                print("Decoding token success")
-                completion(.success(token))
-            case .failure(let error):
-                print("Failed to decode token. Error: \(error)")
-                completion(.failure(error))
-            }
-        }
+        let response: LoginTokenModel = try await networkManager.request(endpoint: endpoint,
+                                                                         method: HTTPMethod.post,
+                                                                         parameters: parameters,
+                                                                         headers: headers
+        )
+        return response
     }
 }

@@ -78,6 +78,10 @@ class EmployeeHomeViewController: UIViewController {
     @objc func dismissDatePicker() {
         view.endEditing(true)
     }
+    
+    deinit {
+        print("\(self) has been removed from Memory")
+    }
 }
 
 extension EmployeeHomeViewController: EmployeeHomeViewModelDelegate {

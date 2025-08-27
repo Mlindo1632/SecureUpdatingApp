@@ -31,7 +31,6 @@ class ReviewViewController: UIViewController {
         reviewView.reviewResidentialAddress.text = "Residential Address: \(additionalInfoDetails?.residentialAddress ?? "")"
         reviewView.reviewGenderLabel.text = "Gender: \(additionalInfoDetails?.gender ?? "")"
         SecureImageHelper.loadCachedImage(from: employee?.avatar ?? "", into: reviewView.reviewImageView)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,5 +44,8 @@ class ReviewViewController: UIViewController {
         reviewView.reviewColourView.layer.cornerRadius = reviewView.reviewColourView.frame.height / 2
         reviewView.reviewColourView.layer.borderWidth = 4
         reviewView.reviewColourView.layer.borderColor = UIColor.white.cgColor
+    }
+    deinit {
+        print("\(self) has been removed from Memory")
     }
 }

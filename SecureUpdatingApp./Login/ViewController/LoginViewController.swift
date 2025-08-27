@@ -25,7 +25,42 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginViewModel?.delegate = self
         setUpTextFieldsAndButton()
+        setupViewModelBindings()
     }
+    
+    private func setupViewModelBindings() {
+            loginViewModel?.onSuccess = { [weak self] token in
+                guard let self = self else { return }
+                SecureAcivityIndicator.stopAndHideActivityIndicator(self.loginView.activityIndicator)
+                print("Successfully Logged in. Token is", token.token ?? "nil")
+                
+                SecureTextFieldAndButtonManager.clearAndDisable(
+                    textFieldOne: self.loginView.emailTextField,
+                    textFieldTwo: self.loginView.passwordTextField,
+                    button: self.loginView.loginButton
+                )
+                
+                let employeeHomeViewModel = EmployeeHomeViewModel()
+                let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
+                SecureNavigation.navigate(from: self, to: employeeHomeViewController)
+            }
+            
+            loginViewModel?.onFailure = { [weak self] error in
+                guard let self = self else { return }
+                SecureAcivityIndicator.stopAndHideActivityIndicator(self.loginView.activityIndicator)
+                print("Login failed:", error.localizedDescription)
+                
+                SecureTextFieldAndButtonManager.clearAndDisable(
+                    textFieldOne: self.loginView.emailTextField,
+                    textFieldTwo: self.loginView.passwordTextField,
+                    button: self.loginView.loginButton
+                )
+                
+                SecureAlertController.showAlert(on: self,
+                                                message: "Password or Email may be incorrect. Please try again.",
+                                                title: "OK")
+            }
+        }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -57,6 +92,10 @@ class LoginViewController: UIViewController {
         loginViewModel?.password = password
         loginViewModel?.getToken()
     }
+    
+    deinit {
+        print("\(self) has been removed from Memory")
+    }
 }
 
 extension LoginViewController: LoginViewModelDelegate {
@@ -81,29 +120,5 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func didUpdateFormValidation(isValid: Bool) {
         loginView.loginButton.isEnabled = isValid
-    }
-    
-    func didGetToken(token: LoginTokenModel) {
-        SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
-        print("Successfully Logged in. Token is \(token.token)")
-        
-        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
-                                                        textFieldTwo: loginView.passwordTextField,
-                                                        button: loginView.loginButton)
-        
-        DispatchQueue.main.async {
-            let employeeHomeViewModel = EmployeeHomeViewModel()
-            let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
-            SecureNavigation.navigate(from: self, to: employeeHomeViewController)
-        }
-    }
-    
-    func didFailToGetToken(error: Error) {
-        SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
-        print("Password or Email may be incorrect. Please try again")
-        SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
-                                                        textFieldTwo: loginView.passwordTextField,
-                                                        button: loginView.loginButton)
-        SecureAlertController.showAlert(on: self, message: "Password or Email may be incorrect. Please try again.", title: "OK")
     }
 }

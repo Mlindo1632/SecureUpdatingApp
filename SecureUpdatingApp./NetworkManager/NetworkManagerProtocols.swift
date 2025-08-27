@@ -9,9 +9,20 @@ import Foundation
 
 enum APIError: Error {
     case invalidURL
-    case requestFailed
-    case decodingFailed
-    case unknownError
+    case invalidData
+    case jsonParsingFailure
+    case requestFailed(description: String)
+    case invalidStatusCode(statusCode: Int)
+    
+    var customDescription: String {
+        switch self {
+        case .invalidURL: return "URL is invalid"
+        case .invalidData: return "Invalid data"
+        case .jsonParsingFailure: return "Failed to parse JSON"
+        case let .requestFailed(description): return "Request failed: \(description)"
+        case let .invalidStatusCode(statusCode): return "Invalid status code: \(statusCode)"
+        }
+    }
 }
 
 enum HTTPMethod: String {
@@ -26,13 +37,7 @@ protocol NetworkManagerProtocol {
         endpoint: String,
         method: HTTPMethod,
         parameters: [String: Any]?,
-        headers: [String: String]?,
-        completion: @escaping (Result<T, APIError>) -> Void
-    )
-}
-
-protocol NetworkManagerDelegate: AnyObject {
-    func didDecodeData<T: Decodable>(_ data: T)
-    func didFail(_ error: APIError)
+        headers: [String: String]?
+    ) async throws -> T
 }
 

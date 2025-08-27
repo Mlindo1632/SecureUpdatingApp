@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ColourListServiceCallProtocol {
-    func getColourList(completion: @escaping (Result<[ColourDetails], APIError>) -> Void)
+    func getColourList() async throws -> [ColourDetails]
 }
 
 struct ColourListServiceCall: ColourListServiceCallProtocol {
@@ -19,28 +19,21 @@ struct ColourListServiceCall: ColourListServiceCallProtocol {
         self.networkManager = networkManager
     }
     
-    func getColourList(completion: @escaping (Result<[ColourDetails], APIError>) -> Void) {
+    func getColourList() async throws -> [ColourDetails] {
         
-        let endpoint = SecurePlistReader.readValue(key: "ReqresColourDetails")!
+        guard let endpoint = SecurePlistReader.readValue(key: "ReqresColourDetails") else {
+            throw URLError(.badURL)
+        }
         
         let headers = ["x-api-key": "reqres-free-v1"]
         
-        networkManager.request(endpoint: endpoint,
-                               method: .get,
-                               parameters: nil,
-                               headers: headers
-        ) {(result: Result<ColourListModel, APIError>) in
-            switch result {
-            case .success(let response):
-                print("Decoding colours success")
-                completion(.success(response.data))
-            case .failure(let error):
-                print("Failed to decode colours. Error: \(error)")
-                completion(.failure(error))
-            }
-        }
-                               
+        let colours: ColourListModel = try await networkManager.request(
+            endpoint: endpoint,
+            method: HTTPMethod.get,
+            parameters: nil,
+            headers: headers
+        )
+        return colours.data
     }
-    
 }
 
