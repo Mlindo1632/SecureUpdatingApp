@@ -31,6 +31,8 @@ class ReviewViewController: UIViewController {
         reviewView.reviewResidentialAddress.text = "Residential Address: \(additionalInfoDetails?.residentialAddress ?? "")"
         reviewView.reviewGenderLabel.text = "Gender: \(additionalInfoDetails?.gender ?? "")"
         SecureImageHelper.loadCachedImage(from: employee?.avatar ?? "", into: reviewView.reviewImageView)
+        
+        setUpReviewButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,24 @@ class ReviewViewController: UIViewController {
         reviewView.reviewColourView.layer.borderWidth = 4
         reviewView.reviewColourView.layer.borderColor = UIColor.white.cgColor
     }
+    
+    func setUpReviewButton() {
+        reviewView.reviewSubmitButton.addTarget(self, action: #selector(reviewSubmitButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func reviewSubmitButtonPressed() {
+            guard let navController = navigationController else { return }
+            
+            UIView.transition(
+                with: navController.view,
+                duration: 0.6,
+                options: .transitionFlipFromRight,
+                animations: {
+                    navController.popToRootViewController(animated: false)
+                }
+            )
+        }
+    
     deinit {
         print("\(self) has been removed from Memory")
     }
