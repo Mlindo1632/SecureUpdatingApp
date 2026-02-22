@@ -25,7 +25,7 @@ struct EmployeeListServiceCall: EmployeeListServiceCallProtocol {
             throw URLError(.badURL)
         }
         
-        let headers = ["x-api-key": "reqres-free-v1"]
+        let headers = ["x-api-key": "reqres_4ce24ed786224f58a05c6857a0ae0b69"]
         
         let response: EmployeeListModel = try await networkManager.request(
             endpoint: endpoint,

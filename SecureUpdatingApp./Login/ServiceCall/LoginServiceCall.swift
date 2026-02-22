@@ -24,7 +24,7 @@ struct LoginServiceCall: LoginServiceCallProtocol {
         
         let parameters: [String: Any] = ["email": email, "password": password]
         
-        let headers = ["x-api-key": "reqres-free-v1"]
+        let headers = ["x-api-key": "reqres_4ce24ed786224f58a05c6857a0ae0b69"]
         
         let response: LoginTokenModel = try await networkManager.request(endpoint: endpoint,
                                                                          method: HTTPMethod.post,

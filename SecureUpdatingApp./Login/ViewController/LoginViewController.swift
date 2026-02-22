@@ -23,44 +23,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginViewModel?.delegate = self
         setUpTextFieldsAndButton()
-        setupViewModelBindings()
     }
-    
-    private func setupViewModelBindings() {
-            loginViewModel?.onSuccess = { [weak self] token in
-                guard let self = self else { return }
-                SecureAcivityIndicator.stopAndHideActivityIndicator(self.loginView.activityIndicator)
-                print("Successfully Logged in. Token is", token.token ?? "nil")
-                
-                SecureTextFieldAndButtonManager.clearAndDisable(
-                    textFieldOne: self.loginView.emailTextField,
-                    textFieldTwo: self.loginView.passwordTextField,
-                    button: self.loginView.loginButton
-                )
-                
-                let employeeHomeViewModel = EmployeeHomeViewModel()
-                let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
-                SecureNavigation.navigate(from: self, to: employeeHomeViewController)
-            }
-            
-            loginViewModel?.onFailure = { [weak self] error in
-                guard let self = self else { return }
-                SecureAcivityIndicator.stopAndHideActivityIndicator(self.loginView.activityIndicator)
-                print("Login failed:", error.localizedDescription)
-                
-                SecureTextFieldAndButtonManager.clearAndDisable(
-                    textFieldOne: self.loginView.emailTextField,
-                    textFieldTwo: self.loginView.passwordTextField,
-                    button: self.loginView.loginButton
-                )
-                
-                SecureAlertController.showAlert(on: self,
-                                                message: "Password or Email may be incorrect. Please try again.",
-                                                title: "OK")
-            }
-        }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -76,21 +40,71 @@ class LoginViewController: UIViewController {
     
     @objc private func emailDidChange(_ textfield: UITextField) {
         loginViewModel?.email = textfield.text ?? ""
+        updateValidationUI()
     }
     
     @objc private func passwordDidChange(_ textfield: UITextField) {
         loginViewModel?.password = textfield.text ?? ""
+        updateValidationUI()
+    }
+    
+    private func updateValidationUI() {
+        let emailError = loginViewModel?.validateEmail()
+        let passwordError = loginViewModel?.validatePassword()
+        
+        loginView.emailErrorLabel.text = emailError
+        loginView.emailErrorLabel.isHidden = (emailError == nil)
+        
+        loginView.passwordErrorLabel.text = passwordError
+        loginView.passwordErrorLabel.isHidden = (passwordError == nil)
+        
+        let hasErrors = (emailError != nil) || (passwordError != nil)
+        loginView.loginButton.isEnabled = !hasErrors
     }
     
     @objc private func loginButtonPressed() {
+        loginViewModel?.email = loginView.emailTextField.text?.lowercased() ?? ""
+        loginViewModel?.password = loginView.passwordTextField.text ?? ""
+        
+        guard ((loginViewModel?.isFormValid) != nil) else {
+            updateValidationUI()
+            return
+        }
+        
         loginView.activityIndicator.isHidden = false
         loginView.activityIndicator.startAnimating()
         
-        guard let email = loginView.emailTextField.text?.lowercased(), let password = loginView.passwordTextField.text else { return }
-        
-        loginViewModel?.email = email
-        loginViewModel?.password = password
-        loginViewModel?.getToken()
+        Task { @MainActor in
+            do {
+                let token = try await loginViewModel?.getToken()
+                
+                SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
+                
+                print("Successfully Logged in. Token:", token ?? "")
+                SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
+                                                                textFieldTwo: loginView.passwordTextField,
+                                                                button: loginView.loginButton
+                )
+                
+                let employeeHomeViewModel = EmployeeHomeViewModel()
+                let employeeHomeViewController = EmployeeHomeViewController(viewModel: employeeHomeViewModel)
+                SecureNavigation.navigate(from: self, to: employeeHomeViewController)
+                
+            } catch {
+                
+                SecureAcivityIndicator.stopAndHideActivityIndicator(loginView.activityIndicator)
+                
+                SecureTextFieldAndButtonManager.clearAndDisable(textFieldOne: loginView.emailTextField,
+                                                                textFieldTwo: loginView.passwordTextField,
+                                                                button: loginView.loginButton
+                )
+                
+                SecureAlertController.showAlert(on: self,
+                                                message: error.localizedDescription,
+                                                title: "Login failed"
+                )
+            }
+        }
     }
     
     deinit {
@@ -98,27 +112,3 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: LoginViewModelDelegate {
-    
-    func didUpdateEmailValidation(isValid: Bool, errorMessage: String?) {
-        if let errorMessage = errorMessage {
-            loginView.emailErrorLabel.text = errorMessage
-            loginView.emailErrorLabel.isHidden = false
-        } else {
-            loginView.emailErrorLabel.isHidden = true
-        }
-    }
-    
-    func didUpdatePasswordValidation(isValid: Bool, errorMessage: String?) {
-        if let errorMessage = errorMessage {
-            loginView.passwordErrorLabel.text = errorMessage
-            loginView.passwordErrorLabel.isHidden = false
-        } else {
-            loginView.passwordErrorLabel.isHidden = true
-        }
-    }
-    
-    func didUpdateFormValidation(isValid: Bool) {
-        loginView.loginButton.isEnabled = isValid
-    }
-}
