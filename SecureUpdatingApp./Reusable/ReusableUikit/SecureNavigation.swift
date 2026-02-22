@@ -12,8 +12,7 @@ struct SecureNavigation {
         if let navigationController = currentVC.navigationController {
             navigationController.pushViewController(nextVC, animated: true)
             
-            var viewControllers = navigationController.viewControllers
-            viewControllers.removeAll { $0 === currentVC }
+            let viewControllers = navigationController.viewControllers
             navigationController.viewControllers = viewControllers
         }
     }
