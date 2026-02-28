@@ -53,16 +53,7 @@ class ReviewViewController: UIViewController {
     }
     
     @objc func reviewSubmitButtonPressed() {
-            guard let navController = navigationController else { return }
-            
-            UIView.transition(
-                with: navController.view,
-                duration: 0.6,
-                options: .transitionFlipFromRight,
-                animations: {
-                    navController.popToRootViewController(animated: false)
-                }
-            )
+        SecureNavigation.endFlow(using: navigationController)
         }
     
     deinit {

@@ -16,5 +16,18 @@ struct SecureNavigation {
             navigationController.viewControllers = viewControllers
         }
     }
+    
+    static func endFlow(using navigationController: UINavigationController?) {
+        guard let navController = navigationController else { return }
+
+        UIView.transition(
+            with: navController.view,
+            duration: 0.6,
+            options: .transitionFlipFromRight,
+            animations: {
+                navController.popToRootViewController(animated: false)
+            }
+        )
+    }
 }
 
